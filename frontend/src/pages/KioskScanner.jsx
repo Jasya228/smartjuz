@@ -235,7 +235,15 @@ const KioskScanner = () => {
       <div className="absolute top-4 left-4 right-4 flex justify-between items-center z-50 bg-black/40 backdrop-blur-md p-3 rounded-2xl border border-white/10">
         <div className="flex items-center gap-2">
           <Camera size={20} className="text-primary" />
-          <h1 className="text-lg font-black text-white tracking-tighter">SMART<span className="text-primary">JUZ</span></h1>
+          <h1 
+            onDoubleClick={() => {
+              localStorage.removeItem('adminInfo');
+              window.location.href = '/';
+            }}
+            className="text-lg font-black text-white tracking-tighter select-none cursor-default"
+          >
+            SMART<span className="text-primary">JUZ</span>
+          </h1>
         </div>
         <div className="flex bg-black/40 p-1 rounded-xl border border-white/5">
           {[{id: 'MAIN', name: 'MAIN BLOCK'}, {id: 'IT', name: 'IT CENTER'}, {id: 'DORM', name: 'DORMITORY'}].map(loc => (
