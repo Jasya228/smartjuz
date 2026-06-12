@@ -1,0 +1,43 @@
+[
+  {
+    "_id": "cef54ad769454b189d9eb038",
+    "chatId": "6084511754",
+    "name": "Jasya",
+    "role": "admin",
+    "filter": "Преподаватель",
+    "status": "active",
+    "createdAt": "2026-05-16T11:06:32.259Z",
+    "updatedAt": "2026-05-16T11:06:32.259Z"
+  },
+  {
+    "_id": "0dcf5136420df9c82a6eea95",
+    "chatId": "8225102599",
+    "name": "Sasaki",
+    "role": "admin",
+    "filter": "all",
+    "status": "active",
+    "createdAt": "2026-05-16T12:29:35.583Z",
+    "updatedAt": "2026-05-16T12:29:35.583Z"
+  },
+  {
+    "_id": "b377fe0b864d734b02a5ebe2",
+    "chatId": "1873841470",
+    "name": "Са2",
+    "role": "parent",
+    "assignedChildId": "STD-26-005",
+    "childName": "Салыкбаев Жасулан",
+    "status": "active",
+    "createdAt": "2026-05-16T18:39:17.882Z",
+    "updatedAt": "2026-05-16T18:39:17.883Z"
+  },
+  {
+    "_id": "58b842c779dede253c8bd9e0",
+    "chatId": "1392886473",
+    "name": "Erlik",
+    "role": "admin",
+    "filter": "all",
+    "status": "active",
+    "createdAt": "2026-05-16T19:16:00.909Z",
+    "updatedAt": "2026-05-16T19:16:00.909Z"
+  }
+]

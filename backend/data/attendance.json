@@ -1,0 +1,1896 @@
+[
+  {
+    "_id": "b01cd0198e91596de0dd5ffc",
+    "studentId": "1d655b657dfadbeb2641d3a1",
+    "createdAt": "2026-05-12T18:58:00.229Z",
+    "updatedAt": "2026-05-12T18:58:00.229Z"
+  },
+  {
+    "_id": "7db673c4e52523c5058c5999",
+    "studentId": "1d655b657dfadbeb2641d3a1",
+    "createdAt": "2026-05-12T18:58:46.116Z",
+    "updatedAt": "2026-05-12T18:58:46.116Z"
+  },
+  {
+    "_id": "e1627f0a00a4288a81a92cdd",
+    "studentId": "1d655b657dfadbeb2641d3a1",
+    "createdAt": "2026-05-12T18:59:52.489Z",
+    "updatedAt": "2026-05-12T18:59:52.489Z"
+  },
+  {
+    "_id": "66e5c142d0d1a97f8ef318f5",
+    "studentId": "b5b7a9bde92eb92f6986d063",
+    "createdAt": "2026-05-12T19:02:18.990Z",
+    "updatedAt": "2026-05-12T19:02:18.990Z"
+  },
+  {
+    "_id": "16ec0f06b6f240b467e9a623",
+    "studentId": "b5b7a9bde92eb92f6986d063",
+    "confidenceScore": 0.6871702651893615,
+    "status": "Present",
+    "timestamp": "2026-05-12T19:08:10.420Z",
+    "createdAt": "2026-05-12T19:08:10.420Z",
+    "updatedAt": "2026-05-12T19:08:10.420Z"
+  },
+  {
+    "_id": "a024e89f8f99146c8c42f642",
+    "studentId": "b5b7a9bde92eb92f6986d063",
+    "confidenceScore": 0.7144242259181603,
+    "status": "Present",
+    "timestamp": "2026-05-12T19:11:09.885Z",
+    "createdAt": "2026-05-12T19:11:09.885Z",
+    "updatedAt": "2026-05-12T19:11:09.885Z"
+  },
+  {
+    "_id": "b3ad4faa9660e6b77eb4fddf",
+    "studentId": "4e3a696f8af0588ce06a97df",
+    "confidenceScore": 0.5370196164252324,
+    "status": "Present",
+    "timestamp": "2026-05-12T19:11:13.098Z",
+    "createdAt": "2026-05-12T19:11:13.098Z",
+    "updatedAt": "2026-05-12T19:11:13.098Z"
+  },
+  {
+    "_id": "4644af5ab2676a5ad720fab3",
+    "studentId": "b5b7a9bde92eb92f6986d063",
+    "confidenceScore": 0.7004804532069375,
+    "status": "Present",
+    "timestamp": "2026-05-12T19:19:13.773Z",
+    "createdAt": "2026-05-12T19:19:13.773Z",
+    "updatedAt": "2026-05-12T19:19:13.773Z"
+  },
+  {
+    "_id": "f57c012748b3ac0d0a01928e",
+    "studentId": "b5b7a9bde92eb92f6986d063",
+    "confidenceScore": 0.7058862700209461,
+    "status": "Present",
+    "timestamp": "2026-05-12T19:46:10.499Z",
+    "createdAt": "2026-05-12T19:46:10.499Z",
+    "updatedAt": "2026-05-12T19:46:10.499Z"
+  },
+  {
+    "_id": "4ce47ae9c523b883e4c49cb7",
+    "studentId": "b5b7a9bde92eb92f6986d063",
+    "confidenceScore": 0.6070290502593941,
+    "status": "Present",
+    "timestamp": "2026-05-12T19:49:49.235Z",
+    "createdAt": "2026-05-12T19:49:49.236Z",
+    "updatedAt": "2026-05-12T19:49:49.236Z"
+  },
+  {
+    "_id": "2f6e111d46d78e30469cc053",
+    "studentId": "b5b7a9bde92eb92f6986d063",
+    "confidenceScore": 0.6603194267103369,
+    "status": "Present",
+    "timestamp": "2026-05-12T19:50:49.599Z",
+    "createdAt": "2026-05-12T19:50:49.600Z",
+    "updatedAt": "2026-05-12T19:50:49.600Z"
+  },
+  {
+    "_id": "5442ae17249e1ac94dc26c64",
+    "studentId": "b5b7a9bde92eb92f6986d063",
+    "confidenceScore": 0.6174185243604293,
+    "status": "Present",
+    "timestamp": "2026-05-12T19:51:49.600Z",
+    "createdAt": "2026-05-12T19:51:49.600Z",
+    "updatedAt": "2026-05-12T19:51:49.600Z"
+  },
+  {
+    "_id": "4ad7e89d694fc26c03cf22b6",
+    "studentId": "b5b7a9bde92eb92f6986d063",
+    "confidenceScore": 0.6424743716244837,
+    "status": "Present",
+    "timestamp": "2026-05-12T19:52:49.605Z",
+    "createdAt": "2026-05-12T19:52:49.605Z",
+    "updatedAt": "2026-05-12T19:52:49.605Z"
+  },
+  {
+    "_id": "fbf82bbac9ce2f0fa5f04cf4",
+    "studentId": "b5b7a9bde92eb92f6986d063",
+    "confidenceScore": 0.7410075048928674,
+    "status": "Present",
+    "timestamp": "2026-05-12T19:53:26.776Z",
+    "createdAt": "2026-05-12T19:53:26.776Z",
+    "updatedAt": "2026-05-12T19:53:26.777Z"
+  },
+  {
+    "_id": "b58f546bc47465a449ba572f",
+    "studentId": "b5b7a9bde92eb92f6986d063",
+    "confidenceScore": 0.43517069937032393,
+    "status": "Present",
+    "timestamp": "2026-05-12T19:53:45.542Z",
+    "createdAt": "2026-05-12T19:53:45.542Z",
+    "updatedAt": "2026-05-12T19:53:45.542Z"
+  },
+  {
+    "_id": "8f1493198ead1f24eac43b41",
+    "studentId": "4e3a696f8af0588ce06a97df",
+    "confidenceScore": 0.5902494971617569,
+    "status": "Present",
+    "timestamp": "2026-05-12T19:53:46.308Z",
+    "createdAt": "2026-05-12T19:53:46.309Z",
+    "updatedAt": "2026-05-12T19:53:46.309Z"
+  },
+  {
+    "_id": "b4c37488bba41d7965ed5f69",
+    "studentId": "4e3a696f8af0588ce06a97df",
+    "confidenceScore": 0.5509818250153283,
+    "status": "Present",
+    "timestamp": "2026-05-12T19:54:28.591Z",
+    "createdAt": "2026-05-12T19:54:28.591Z",
+    "updatedAt": "2026-05-12T19:54:28.591Z"
+  },
+  {
+    "_id": "97bc0a92f329b51966a9215f",
+    "studentId": "b5b7a9bde92eb92f6986d063",
+    "confidenceScore": 0.6748635406466261,
+    "status": "Present",
+    "timestamp": "2026-05-12T19:54:31.884Z",
+    "createdAt": "2026-05-12T19:54:31.884Z",
+    "updatedAt": "2026-05-12T19:54:31.884Z"
+  },
+  {
+    "_id": "db63349949c797e1daa6ca9b",
+    "studentId": "b5b7a9bde92eb92f6986d063",
+    "confidenceScore": 0.5531453094721064,
+    "status": "Late",
+    "timestamp": "2026-05-15T11:17:19.242Z",
+    "createdAt": "2026-05-15T11:17:19.243Z",
+    "updatedAt": "2026-05-15T11:17:19.243Z"
+  },
+  {
+    "_id": "64e560309ab1d996607bb647",
+    "studentId": "b5b7a9bde92eb92f6986d063",
+    "confidenceScore": 0.4560047220725827,
+    "status": "Late",
+    "timestamp": "2026-05-15T12:46:23.774Z",
+    "createdAt": "2026-05-15T12:46:23.776Z",
+    "updatedAt": "2026-05-15T12:46:23.777Z"
+  },
+  {
+    "_id": "dbf0694c77d8f3849d45fed1",
+    "studentId": "b5b7a9bde92eb92f6986d063",
+    "confidenceScore": 0.4077380441241415,
+    "status": "Late",
+    "timestamp": "2026-05-15T12:46:40.669Z",
+    "createdAt": "2026-05-15T12:46:40.669Z",
+    "updatedAt": "2026-05-15T12:46:40.670Z"
+  },
+  {
+    "_id": "575c757d2a55f4138389454c",
+    "studentId": "4e3a696f8af0588ce06a97df",
+    "confidenceScore": 0.4212151562298546,
+    "status": "Late",
+    "timestamp": "2026-05-15T12:46:42.592Z",
+    "createdAt": "2026-05-15T12:46:42.592Z",
+    "updatedAt": "2026-05-15T12:46:42.592Z"
+  },
+  {
+    "_id": "8cacc26b36f3aecfe71b6572",
+    "studentId": "2c238da776897649572c2488",
+    "confidenceScore": 0.7917466808024319,
+    "status": "Late",
+    "timestamp": "2026-05-15T12:47:35.631Z",
+    "createdAt": "2026-05-15T12:47:35.631Z",
+    "updatedAt": "2026-05-15T12:47:35.631Z"
+  },
+  {
+    "_id": "257474479912dd038ba62d4d",
+    "studentId": "c7a4b8bfd2b1f8d26e036663",
+    "confidenceScore": 0.5182122056694843,
+    "status": "Late",
+    "timestamp": "2026-05-15T12:48:51.978Z",
+    "createdAt": "2026-05-15T12:48:51.978Z",
+    "updatedAt": "2026-05-15T12:48:51.978Z"
+  },
+  {
+    "_id": "1693d6eb92123b824af64fb4",
+    "studentId": "b5b7a9bde92eb92f6986d063",
+    "confidenceScore": 0.5576492178010755,
+    "status": "Late",
+    "timestamp": "2026-05-15T12:49:29.053Z",
+    "createdAt": "2026-05-15T12:49:29.053Z",
+    "updatedAt": "2026-05-15T12:49:29.053Z"
+  },
+  {
+    "_id": "b1574b36a25fad6b6ce8b872",
+    "studentId": "b5b7a9bde92eb92f6986d063",
+    "confidenceScore": 0.6703982174425919,
+    "status": "Late",
+    "timestamp": "2026-05-16T06:16:45.604Z",
+    "createdAt": "2026-05-16T06:16:45.606Z",
+    "updatedAt": "2026-05-16T06:16:45.606Z"
+  },
+  {
+    "_id": "3d5062502e4936640561dcb7",
+    "studentId": "b5b7a9bde92eb92f6986d063",
+    "confidenceScore": 0.588868640279979,
+    "status": "Late",
+    "timestamp": "2026-05-16T06:17:23.272Z",
+    "createdAt": "2026-05-16T06:17:23.272Z",
+    "updatedAt": "2026-05-16T06:17:23.272Z"
+  },
+  {
+    "_id": "6dfd1b20b37cd5921b03766e",
+    "studentId": "b5b7a9bde92eb92f6986d063",
+    "confidenceScore": 0.6367268504164119,
+    "status": "Late",
+    "timestamp": "2026-05-16T06:18:06.081Z",
+    "createdAt": "2026-05-16T06:18:06.081Z",
+    "updatedAt": "2026-05-16T06:18:06.081Z"
+  },
+  {
+    "_id": "d328b7d10e7dc7e7dab79df8",
+    "studentId": "b5b7a9bde92eb92f6986d063",
+    "confidenceScore": 0.6719921365929737,
+    "status": "Late",
+    "timestamp": "2026-05-16T09:42:11.568Z",
+    "createdAt": "2026-05-16T09:42:11.570Z",
+    "updatedAt": "2026-05-16T09:42:11.570Z"
+  },
+  {
+    "_id": "7aa49d8e63255acbddf23ef2",
+    "studentId": "b5b7a9bde92eb92f6986d063",
+    "confidenceScore": 0.6554510595603456,
+    "status": "Late",
+    "timestamp": "2026-05-16T09:53:55.740Z",
+    "createdAt": "2026-05-16T09:53:55.741Z",
+    "updatedAt": "2026-05-16T09:53:55.741Z"
+  },
+  {
+    "_id": "bd0272f7d33a133064d6e851",
+    "studentId": "b5b7a9bde92eb92f6986d063",
+    "confidenceScore": 0.5602007545487917,
+    "status": "Late",
+    "timestamp": "2026-05-16T09:56:14.667Z",
+    "createdAt": "2026-05-16T09:56:14.668Z",
+    "updatedAt": "2026-05-16T09:56:14.668Z"
+  },
+  {
+    "_id": "e48dc3ee1691802a43f6e2e9",
+    "studentId": "d3ee51bbc5dc576571b5ddfa",
+    "confidenceScore": 0.8449811076938355,
+    "status": "Late",
+    "timestamp": "2026-05-16T10:25:03.639Z",
+    "createdAt": "2026-05-16T10:25:03.639Z",
+    "updatedAt": "2026-05-16T10:25:03.639Z"
+  },
+  {
+    "_id": "59a76283cba936d8feb37fbf",
+    "studentId": "d3ee51bbc5dc576571b5ddfa",
+    "confidenceScore": 0.8328585275482316,
+    "status": "Late",
+    "timestamp": "2026-05-16T10:25:06.977Z",
+    "createdAt": "2026-05-16T10:25:06.977Z",
+    "updatedAt": "2026-05-16T10:25:06.977Z"
+  },
+  {
+    "_id": "eb216d65db9d051825e76832",
+    "studentId": "d3ee51bbc5dc576571b5ddfa",
+    "confidenceScore": 0.7873550191333378,
+    "status": "Late",
+    "timestamp": "2026-05-16T10:25:10.347Z",
+    "createdAt": "2026-05-16T10:25:10.347Z",
+    "updatedAt": "2026-05-16T10:25:10.347Z"
+  },
+  {
+    "_id": "602b7920dcecc240d53f7f72",
+    "studentId": "d3ee51bbc5dc576571b5ddfa",
+    "confidenceScore": 0.45117272607032044,
+    "status": "Late",
+    "timestamp": "2026-05-16T10:25:48.363Z",
+    "createdAt": "2026-05-16T10:25:48.363Z",
+    "updatedAt": "2026-05-16T10:25:48.363Z"
+  },
+  {
+    "_id": "80cb213e141bda360912d476",
+    "studentId": "d3ee51bbc5dc576571b5ddfa",
+    "confidenceScore": 0.4550002245459547,
+    "status": "Late",
+    "timestamp": "2026-05-16T10:25:51.736Z",
+    "createdAt": "2026-05-16T10:25:51.736Z",
+    "updatedAt": "2026-05-16T10:25:51.736Z"
+  },
+  {
+    "_id": "1460af915568536877028284",
+    "studentId": "03e4481761e738415261cc18",
+    "confidenceScore": 0.49884223486205015,
+    "status": "Late",
+    "timestamp": "2026-05-16T10:59:09.464Z",
+    "createdAt": "2026-05-16T10:59:09.464Z",
+    "updatedAt": "2026-05-16T10:59:09.464Z"
+  },
+  {
+    "_id": "654c11ea8572c657a0252fde",
+    "studentId": "03e4481761e738415261cc18",
+    "confidenceScore": 0.49867651794009626,
+    "status": "Late",
+    "timestamp": "2026-05-16T10:59:13.008Z",
+    "createdAt": "2026-05-16T10:59:13.008Z",
+    "updatedAt": "2026-05-16T10:59:13.008Z"
+  },
+  {
+    "_id": "02f03325ee2f01e3bf3e2786",
+    "studentId": "03e4481761e738415261cc18",
+    "confidenceScore": 0.5108160699398614,
+    "status": "Late",
+    "timestamp": "2026-05-16T10:59:16.380Z",
+    "createdAt": "2026-05-16T10:59:16.380Z",
+    "updatedAt": "2026-05-16T10:59:16.380Z"
+  },
+  {
+    "_id": "51a7345bab1b50ae563d5e82",
+    "studentId": "03e4481761e738415261cc18",
+    "confidenceScore": 0.49392023856504097,
+    "status": "Late",
+    "timestamp": "2026-05-16T10:59:19.754Z",
+    "createdAt": "2026-05-16T10:59:19.754Z",
+    "updatedAt": "2026-05-16T10:59:19.754Z"
+  },
+  {
+    "_id": "ef0b122bc83b43a8d6206fac",
+    "studentId": "03e4481761e738415261cc18",
+    "confidenceScore": 0.5062264668452106,
+    "status": "Late",
+    "timestamp": "2026-05-16T10:59:23.104Z",
+    "createdAt": "2026-05-16T10:59:23.104Z",
+    "updatedAt": "2026-05-16T10:59:23.104Z"
+  },
+  {
+    "_id": "e5ca08cac05fd7cfa354d7ed",
+    "studentId": "03e4481761e738415261cc18",
+    "confidenceScore": 0.470154291573172,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:00:39.364Z",
+    "createdAt": "2026-05-16T11:00:39.364Z",
+    "updatedAt": "2026-05-16T11:00:39.364Z"
+  },
+  {
+    "_id": "ae6d3fd109b2c1400fa59f7a",
+    "studentId": "d3ee51bbc5dc576571b5ddfa",
+    "confidenceScore": 0.529210944792369,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:00:45.355Z",
+    "createdAt": "2026-05-16T11:00:45.355Z",
+    "updatedAt": "2026-05-16T11:00:45.355Z"
+  },
+  {
+    "_id": "5d78d3414955e06b76a20efe",
+    "studentId": "d3ee51bbc5dc576571b5ddfa",
+    "confidenceScore": 0.4733066126792256,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:00:48.697Z",
+    "createdAt": "2026-05-16T11:00:48.697Z",
+    "updatedAt": "2026-05-16T11:00:48.697Z"
+  },
+  {
+    "_id": "06f33b1219c21850e2d1143f",
+    "studentId": "d3ee51bbc5dc576571b5ddfa",
+    "confidenceScore": 0.5779357506625196,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:00:52.023Z",
+    "createdAt": "2026-05-16T11:00:52.023Z",
+    "updatedAt": "2026-05-16T11:00:52.023Z"
+  },
+  {
+    "_id": "28a76223f594cfc79c896dfb",
+    "studentId": "03e4481761e738415261cc18",
+    "confidenceScore": 0.5050600584564828,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:00:57.120Z",
+    "createdAt": "2026-05-16T11:00:57.120Z",
+    "updatedAt": "2026-05-16T11:00:57.120Z"
+  },
+  {
+    "_id": "3c23df7b4aa5418ba721a2bf",
+    "studentId": "d3ee51bbc5dc576571b5ddfa",
+    "confidenceScore": 0.6469481501057692,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:01:00.486Z",
+    "createdAt": "2026-05-16T11:01:00.486Z",
+    "updatedAt": "2026-05-16T11:01:00.486Z"
+  },
+  {
+    "_id": "51c2b03452b7dfd7ad075711",
+    "studentId": "03e4481761e738415261cc18",
+    "confidenceScore": 0.5246678564861043,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:31:42.124Z",
+    "createdAt": "2026-05-16T11:31:42.124Z",
+    "updatedAt": "2026-05-16T11:31:42.124Z"
+  },
+  {
+    "_id": "5572bed40884651ea683f3ca",
+    "studentId": "ae0dbdab53ce8222586f05ea",
+    "confidenceScore": 0.6453885142973025,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:31:48.092Z",
+    "createdAt": "2026-05-16T11:31:48.092Z",
+    "updatedAt": "2026-05-16T11:31:48.092Z"
+  },
+  {
+    "_id": "13d8a8dfcd5c020b446555c7",
+    "studentId": "d3ee51bbc5dc576571b5ddfa",
+    "confidenceScore": 0.4840895518217422,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:31:54.215Z",
+    "createdAt": "2026-05-16T11:31:54.215Z",
+    "updatedAt": "2026-05-16T11:31:54.215Z"
+  },
+  {
+    "_id": "75fed3d32107d254b9033da1",
+    "studentId": "ae0dbdab53ce8222586f05ea",
+    "confidenceScore": 0.7140382820530018,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:31:57.600Z",
+    "createdAt": "2026-05-16T11:31:57.600Z",
+    "updatedAt": "2026-05-16T11:31:57.600Z"
+  },
+  {
+    "_id": "ccdaa789a822893b5d79c269",
+    "studentId": "ae0dbdab53ce8222586f05ea",
+    "confidenceScore": 0.6846096966661785,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:32:00.978Z",
+    "createdAt": "2026-05-16T11:32:00.978Z",
+    "updatedAt": "2026-05-16T11:32:00.978Z"
+  },
+  {
+    "_id": "738e2d4487df74f817cdc660",
+    "studentId": "d3ee51bbc5dc576571b5ddfa",
+    "confidenceScore": 0.6030640055820501,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:32:04.349Z",
+    "createdAt": "2026-05-16T11:32:04.349Z",
+    "updatedAt": "2026-05-16T11:32:04.349Z"
+  },
+  {
+    "_id": "88cb65d5e6bcdb722b700391",
+    "studentId": "d3ee51bbc5dc576571b5ddfa",
+    "confidenceScore": 0.6722018149258977,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:32:07.699Z",
+    "createdAt": "2026-05-16T11:32:07.699Z",
+    "updatedAt": "2026-05-16T11:32:07.699Z"
+  },
+  {
+    "_id": "5b7aed2cfd3fd1bbb1cb8d70",
+    "studentId": "d3ee51bbc5dc576571b5ddfa",
+    "confidenceScore": 0.6111971871857504,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:32:11.067Z",
+    "createdAt": "2026-05-16T11:32:11.067Z",
+    "updatedAt": "2026-05-16T11:32:11.067Z"
+  },
+  {
+    "_id": "426c432f260c5f37fdd33542",
+    "studentId": "d3ee51bbc5dc576571b5ddfa",
+    "confidenceScore": 0.47467311991313077,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:33:38.773Z",
+    "createdAt": "2026-05-16T11:33:38.773Z",
+    "updatedAt": "2026-05-16T11:33:38.773Z"
+  },
+  {
+    "_id": "edf6ffd2661cc0f8589dcb18",
+    "studentId": "d3ee51bbc5dc576571b5ddfa",
+    "confidenceScore": 0.6454291816082194,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:33:42.136Z",
+    "createdAt": "2026-05-16T11:33:42.136Z",
+    "updatedAt": "2026-05-16T11:33:42.136Z"
+  },
+  {
+    "_id": "fd9b9432899efcd578b8f22e",
+    "studentId": "d3ee51bbc5dc576571b5ddfa",
+    "confidenceScore": 0.6517909227207744,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:34:21.857Z",
+    "createdAt": "2026-05-16T11:34:21.857Z",
+    "updatedAt": "2026-05-16T11:34:21.857Z"
+  },
+  {
+    "_id": "18e75754486f70d941d5e476",
+    "studentId": "03e4481761e738415261cc18",
+    "confidenceScore": 0.513127959596643,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:34:26.979Z",
+    "createdAt": "2026-05-16T11:34:26.979Z",
+    "updatedAt": "2026-05-16T11:34:26.979Z"
+  },
+  {
+    "_id": "b0b570141adbfd64f7d344ac",
+    "studentId": "d3ee51bbc5dc576571b5ddfa",
+    "confidenceScore": 0.4795829083869483,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:34:31.190Z",
+    "createdAt": "2026-05-16T11:34:31.190Z",
+    "updatedAt": "2026-05-16T11:34:31.190Z"
+  },
+  {
+    "_id": "456b647d8f0d201b8a56cd64",
+    "studentId": "d3ee51bbc5dc576571b5ddfa",
+    "confidenceScore": 0.551065003192802,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:34:34.533Z",
+    "createdAt": "2026-05-16T11:34:34.533Z",
+    "updatedAt": "2026-05-16T11:34:34.533Z"
+  },
+  {
+    "_id": "5b23cfb068902c1b78414e5c",
+    "studentId": "d3ee51bbc5dc576571b5ddfa",
+    "confidenceScore": 0.6467502647281531,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:37:57.116Z",
+    "createdAt": "2026-05-16T11:37:57.116Z",
+    "updatedAt": "2026-05-16T11:37:57.116Z"
+  },
+  {
+    "_id": "c50f166f1943819070b720e3",
+    "studentId": "d3ee51bbc5dc576571b5ddfa",
+    "confidenceScore": 0.5704287483018498,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:38:06.029Z",
+    "createdAt": "2026-05-16T11:38:06.029Z",
+    "updatedAt": "2026-05-16T11:38:06.029Z"
+  },
+  {
+    "_id": "a916cabee90b8da2cfb642d6",
+    "studentId": "d3ee51bbc5dc576571b5ddfa",
+    "confidenceScore": 0.6410363467766728,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:38:43.475Z",
+    "createdAt": "2026-05-16T11:38:43.475Z",
+    "updatedAt": "2026-05-16T11:38:43.475Z"
+  },
+  {
+    "_id": "486138914a95bbc53d7bab86",
+    "studentId": "d3ee51bbc5dc576571b5ddfa",
+    "confidenceScore": 0.6508564660604321,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:38:46.823Z",
+    "createdAt": "2026-05-16T11:38:46.823Z",
+    "updatedAt": "2026-05-16T11:38:46.823Z"
+  },
+  {
+    "_id": "1903a71df675b1fb0a58cfde",
+    "studentId": "03e4481761e738415261cc18",
+    "confidenceScore": 0.5025336637871125,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:40:16.453Z",
+    "createdAt": "2026-05-16T11:40:16.453Z",
+    "updatedAt": "2026-05-16T11:40:16.453Z"
+  },
+  {
+    "_id": "faf94f255d2405eed23cacb8",
+    "studentId": "03e4481761e738415261cc18",
+    "confidenceScore": 0.5197574180080795,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:40:19.798Z",
+    "createdAt": "2026-05-16T11:40:19.798Z",
+    "updatedAt": "2026-05-16T11:40:19.798Z"
+  },
+  {
+    "_id": "577eaca33b1bcb9bdbb1962e",
+    "studentId": "d3ee51bbc5dc576571b5ddfa",
+    "confidenceScore": 0.5530448819408497,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:40:23.135Z",
+    "createdAt": "2026-05-16T11:40:23.135Z",
+    "updatedAt": "2026-05-16T11:40:23.135Z"
+  },
+  {
+    "_id": "844d1b6eb7ad9342af5153cd",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.7394881774494007,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:46:29.116Z",
+    "createdAt": "2026-05-16T11:46:29.116Z",
+    "updatedAt": "2026-05-16T11:46:29.116Z"
+  },
+  {
+    "_id": "03719f6c774491b27bc2aa27",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.7628852810178846,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:48:56.362Z",
+    "createdAt": "2026-05-16T11:48:56.362Z",
+    "updatedAt": "2026-05-16T11:48:56.362Z"
+  },
+  {
+    "_id": "1ee0ed14d2f7368e67c65d23",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6984254932974854,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:53:14.023Z",
+    "createdAt": "2026-05-16T11:53:14.023Z",
+    "updatedAt": "2026-05-16T11:53:14.023Z"
+  },
+  {
+    "_id": "64fe69fcf6debd7e6e7ac2c8",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.7164813232875307,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:53:20.114Z",
+    "createdAt": "2026-05-16T11:53:20.114Z",
+    "updatedAt": "2026-05-16T11:53:20.114Z"
+  },
+  {
+    "_id": "a631111be486a1b0a29db1b9",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.7815310469110733,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:55:55.722Z",
+    "createdAt": "2026-05-16T11:55:55.722Z",
+    "updatedAt": "2026-05-16T11:55:55.722Z"
+  },
+  {
+    "_id": "790e8463fb181133b35dfea5",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.8118612071098541,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:55:59.087Z",
+    "createdAt": "2026-05-16T11:55:59.087Z",
+    "updatedAt": "2026-05-16T11:55:59.087Z"
+  },
+  {
+    "_id": "c646d49eee25790cf2d07637",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5016716824901339,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:56:25.529Z",
+    "createdAt": "2026-05-16T11:56:25.529Z",
+    "updatedAt": "2026-05-16T11:56:25.529Z"
+  },
+  {
+    "_id": "0c79143338f6c3af1398c255",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6765880252930319,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:56:28.849Z",
+    "createdAt": "2026-05-16T11:56:28.849Z",
+    "updatedAt": "2026-05-16T11:56:28.849Z"
+  },
+  {
+    "_id": "44c52c7237d4faa7f8faad87",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.7487499392660693,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:56:32.261Z",
+    "createdAt": "2026-05-16T11:56:32.261Z",
+    "updatedAt": "2026-05-16T11:56:32.261Z"
+  },
+  {
+    "_id": "f9ecfd4f2aefb5d668523f54",
+    "studentId": "03e4481761e738415261cc18",
+    "confidenceScore": 0.4747576882552117,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:56:35.581Z",
+    "createdAt": "2026-05-16T11:56:35.581Z",
+    "updatedAt": "2026-05-16T11:56:35.581Z"
+  },
+  {
+    "_id": "740d9ea76ee1ae1e932b0512",
+    "studentId": "03e4481761e738415261cc18",
+    "confidenceScore": 0.4765915202788117,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:56:53.359Z",
+    "createdAt": "2026-05-16T11:56:53.359Z",
+    "updatedAt": "2026-05-16T11:56:53.359Z"
+  },
+  {
+    "_id": "b7e0e0972e32c7ec367aa0bc",
+    "studentId": "03e4481761e738415261cc18",
+    "confidenceScore": 0.4902838719340281,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:56:56.688Z",
+    "createdAt": "2026-05-16T11:56:56.688Z",
+    "updatedAt": "2026-05-16T11:56:56.688Z"
+  },
+  {
+    "_id": "38db14381ba488682dc9466c",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.707997130837732,
+    "status": "Late",
+    "timestamp": "2026-05-16T11:57:05.951Z",
+    "createdAt": "2026-05-16T11:57:05.951Z",
+    "updatedAt": "2026-05-16T11:57:05.951Z"
+  },
+  {
+    "_id": "84c0359f5aa1eb2045a0a8c1",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.8037952444165555,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:02:26.198Z",
+    "createdAt": "2026-05-16T12:02:26.198Z",
+    "updatedAt": "2026-05-16T12:02:26.198Z"
+  },
+  {
+    "_id": "8ec692186d42d8cb0f0da6b7",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.7560105740557833,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:02:35.777Z",
+    "createdAt": "2026-05-16T12:02:35.777Z",
+    "updatedAt": "2026-05-16T12:02:35.777Z"
+  },
+  {
+    "_id": "5961a818a8a7885f7929b3b0",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5947808319437355,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:06:03.547Z",
+    "createdAt": "2026-05-16T12:06:03.548Z",
+    "updatedAt": "2026-05-16T12:06:03.548Z"
+  },
+  {
+    "_id": "293bb1226ab040a919036e3a",
+    "studentId": "f21f13c8ec36972ae04c9a1c",
+    "confidenceScore": 0.7542900838487119,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:12:10.120Z",
+    "createdAt": "2026-05-16T12:12:10.120Z",
+    "updatedAt": "2026-05-16T12:12:10.120Z"
+  },
+  {
+    "_id": "a9583f1b2e3182e2db89a53a",
+    "studentId": "f21f13c8ec36972ae04c9a1c",
+    "confidenceScore": 0.7115689794109195,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:17:40.637Z",
+    "createdAt": "2026-05-16T12:17:40.637Z",
+    "updatedAt": "2026-05-16T12:17:40.637Z"
+  },
+  {
+    "_id": "a0151256ebdb745c1a9b179d",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5919115538798532,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:27:53.246Z",
+    "createdAt": "2026-05-16T12:27:53.246Z",
+    "updatedAt": "2026-05-16T12:27:53.246Z"
+  },
+  {
+    "_id": "b6694da391c1fb4593fafd32",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6515684721969595,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:27:56.596Z",
+    "createdAt": "2026-05-16T12:27:56.596Z",
+    "updatedAt": "2026-05-16T12:27:56.596Z"
+  },
+  {
+    "_id": "ea6ac9b6ef4ac36a8a11ad5d",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6508473336932301,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:31:30.283Z",
+    "createdAt": "2026-05-16T12:31:30.283Z",
+    "updatedAt": "2026-05-16T12:31:30.283Z"
+  },
+  {
+    "_id": "ecaf72ba04802bbef96e0bc4",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6393453354889254,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:31:36.303Z",
+    "createdAt": "2026-05-16T12:31:36.303Z",
+    "updatedAt": "2026-05-16T12:31:36.303Z"
+  },
+  {
+    "_id": "b02eab13533f739278e6dd3e",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.642332230672436,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:31:39.657Z",
+    "createdAt": "2026-05-16T12:31:39.657Z",
+    "updatedAt": "2026-05-16T12:31:39.657Z"
+  },
+  {
+    "_id": "c111bc2626c436735c72bbed",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6896772163900105,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:36:36.973Z",
+    "createdAt": "2026-05-16T12:36:36.974Z",
+    "updatedAt": "2026-05-16T12:36:36.974Z"
+  },
+  {
+    "_id": "14278f4f324d0c48193300c6",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6619924332774516,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:36:40.316Z",
+    "createdAt": "2026-05-16T12:36:40.316Z",
+    "updatedAt": "2026-05-16T12:36:40.316Z"
+  },
+  {
+    "_id": "6713f1c020799a235640d471",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.4834169500931731,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:36:44.546Z",
+    "createdAt": "2026-05-16T12:36:44.546Z",
+    "updatedAt": "2026-05-16T12:36:44.546Z"
+  },
+  {
+    "_id": "680c86a2675ff2fe37ca5395",
+    "studentId": "f21f13c8ec36972ae04c9a1c",
+    "confidenceScore": 0.9,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:38:42.331Z",
+    "createdAt": "2026-05-16T12:38:42.331Z",
+    "updatedAt": "2026-05-16T12:38:42.331Z"
+  },
+  {
+    "_id": "cb47cd5a27a4fdb36b6fb177",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.9,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:42:32.615Z",
+    "createdAt": "2026-05-16T12:42:32.615Z",
+    "updatedAt": "2026-05-16T12:42:32.615Z"
+  },
+  {
+    "_id": "832718f37ed1430437691c6c",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.9,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:44:27.267Z",
+    "createdAt": "2026-05-16T12:44:27.267Z",
+    "updatedAt": "2026-05-16T12:44:27.267Z"
+  },
+  {
+    "_id": "a1bb14f70bed9447b181e655",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5485466219861324,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:49:45.448Z",
+    "createdAt": "2026-05-16T12:49:45.448Z",
+    "updatedAt": "2026-05-16T12:49:45.448Z"
+  },
+  {
+    "_id": "ddfe68fddeeef80b57055623",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5791650046629051,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:49:48.781Z",
+    "createdAt": "2026-05-16T12:49:48.781Z",
+    "updatedAt": "2026-05-16T12:49:48.781Z"
+  },
+  {
+    "_id": "cd98a901885617430d34392f",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.7821147096115946,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:52:07.788Z",
+    "createdAt": "2026-05-16T12:52:07.788Z",
+    "updatedAt": "2026-05-16T12:52:07.788Z"
+  },
+  {
+    "_id": "5de52ec7a9ac1cc024c68153",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.7580281840765056,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:52:11.134Z",
+    "createdAt": "2026-05-16T12:52:11.134Z",
+    "updatedAt": "2026-05-16T12:52:11.134Z"
+  },
+  {
+    "_id": "fa6a2555d1e97ec1946f0394",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.7045465850440875,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:52:14.475Z",
+    "createdAt": "2026-05-16T12:52:14.475Z",
+    "updatedAt": "2026-05-16T12:52:14.475Z"
+  },
+  {
+    "_id": "2cab0a0e48362e3d2b95ba5b",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.737669540568261,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:52:17.824Z",
+    "createdAt": "2026-05-16T12:52:17.824Z",
+    "updatedAt": "2026-05-16T12:52:17.824Z"
+  },
+  {
+    "_id": "8e56add4c0960da5a8855a09",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.7846889751939414,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:52:21.183Z",
+    "createdAt": "2026-05-16T12:52:21.183Z",
+    "updatedAt": "2026-05-16T12:52:21.183Z"
+  },
+  {
+    "_id": "9e96343790793b65ce455eb3",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.7333891916491833,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:52:28.060Z",
+    "createdAt": "2026-05-16T12:52:28.060Z",
+    "updatedAt": "2026-05-16T12:52:28.060Z"
+  },
+  {
+    "_id": "6e60c2955677d493ad336998",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.7242657089814181,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:53:24.415Z",
+    "createdAt": "2026-05-16T12:53:24.415Z",
+    "updatedAt": "2026-05-16T12:53:24.415Z"
+  },
+  {
+    "_id": "816230701280912e197ad1c3",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.7182160782350613,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:54:03.357Z",
+    "createdAt": "2026-05-16T12:54:03.357Z",
+    "updatedAt": "2026-05-16T12:54:03.357Z"
+  },
+  {
+    "_id": "8019d2015bedd5edfcee1805",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.7656136934060229,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:54:06.731Z",
+    "createdAt": "2026-05-16T12:54:06.731Z",
+    "updatedAt": "2026-05-16T12:54:06.731Z"
+  },
+  {
+    "_id": "58c2ef7f01fdc2e15f5f3f84",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6477895324630746,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:54:10.070Z",
+    "createdAt": "2026-05-16T12:54:10.070Z",
+    "updatedAt": "2026-05-16T12:54:10.070Z"
+  },
+  {
+    "_id": "53c55b4a741edf94682956ce",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6516425690061219,
+    "status": "Late",
+    "timestamp": "2026-05-16T12:54:15.206Z",
+    "createdAt": "2026-05-16T12:54:15.206Z",
+    "updatedAt": "2026-05-16T12:54:15.206Z"
+  },
+  {
+    "_id": "bcb6ae6b2a7e3a0190bccf6d",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6665044826714147,
+    "status": "Present",
+    "timestamp": "2026-05-16T12:57:03.242Z",
+    "createdAt": "2026-05-16T12:57:03.243Z",
+    "updatedAt": "2026-05-16T12:57:03.243Z"
+  },
+  {
+    "_id": "c09f42a2b641aeeffa49c44b",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.7403605754533404,
+    "status": "Present",
+    "timestamp": "2026-05-16T12:57:58.799Z",
+    "createdAt": "2026-05-16T12:57:58.799Z",
+    "updatedAt": "2026-05-16T12:57:58.799Z"
+  },
+  {
+    "_id": "4fcc4edd51f645d92efb21ba",
+    "studentId": "f21f13c8ec36972ae04c9a1c",
+    "confidenceScore": 0.6779636924988843,
+    "status": "Present",
+    "timestamp": "2026-05-16T12:58:08.290Z",
+    "createdAt": "2026-05-16T12:58:08.291Z",
+    "updatedAt": "2026-05-16T12:58:08.291Z"
+  },
+  {
+    "_id": "f2107c62956f77f45836af3d",
+    "studentId": "f21f13c8ec36972ae04c9a1c",
+    "confidenceScore": 0.531242400558362,
+    "status": "Present",
+    "timestamp": "2026-05-16T12:58:11.628Z",
+    "createdAt": "2026-05-16T12:58:11.628Z",
+    "updatedAt": "2026-05-16T12:58:11.628Z"
+  },
+  {
+    "_id": "6b24a55b3f46001222a7de27",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.7310787493479889,
+    "status": "Present",
+    "timestamp": "2026-05-16T13:09:50.312Z",
+    "createdAt": "2026-05-16T13:09:50.312Z",
+    "updatedAt": "2026-05-16T13:09:50.312Z"
+  },
+  {
+    "_id": "aa2c9af4eff8992d19bf3a0d",
+    "studentId": "f21f13c8ec36972ae04c9a1c",
+    "confidenceScore": 0.6289823051634317,
+    "status": "Present",
+    "timestamp": "2026-05-16T13:09:55.731Z",
+    "createdAt": "2026-05-16T13:09:55.731Z",
+    "updatedAt": "2026-05-16T13:09:55.731Z"
+  },
+  {
+    "_id": "ceed9f2cb9577bdb32699f9b",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5868325490610742,
+    "status": "Present",
+    "timestamp": "2026-05-16T13:09:59.090Z",
+    "createdAt": "2026-05-16T13:09:59.090Z",
+    "updatedAt": "2026-05-16T13:09:59.091Z"
+  },
+  {
+    "_id": "ec38cd2531b012949914c9dd",
+    "studentId": "ae0dbdab53ce8222586f05ea",
+    "confidenceScore": 0.760501613100509,
+    "status": "Present",
+    "timestamp": "2026-05-16T13:10:12.767Z",
+    "createdAt": "2026-05-16T13:10:12.767Z",
+    "updatedAt": "2026-05-16T13:10:12.767Z"
+  },
+  {
+    "_id": "dcb567d8a1a2cb3b3ac595cb",
+    "studentId": "ae0dbdab53ce8222586f05ea",
+    "confidenceScore": 0.6957760762552991,
+    "status": "Present",
+    "timestamp": "2026-05-16T13:10:16.133Z",
+    "createdAt": "2026-05-16T13:10:16.133Z",
+    "updatedAt": "2026-05-16T13:10:16.133Z"
+  },
+  {
+    "_id": "1b3fc887f8cffa46205ec644",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5923011045611901,
+    "status": "Present",
+    "timestamp": "2026-05-16T13:10:22.912Z",
+    "createdAt": "2026-05-16T13:10:22.912Z",
+    "updatedAt": "2026-05-16T13:10:22.912Z"
+  },
+  {
+    "_id": "aafd5b2bda5db578137a976d",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.7929875842224505,
+    "status": "Present",
+    "timestamp": "2026-05-16T13:10:27.999Z",
+    "createdAt": "2026-05-16T13:10:27.999Z",
+    "updatedAt": "2026-05-16T13:10:27.999Z"
+  },
+  {
+    "_id": "73408b2bab40e931ae74c1d4",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.7353197798460475,
+    "status": "Present",
+    "timestamp": "2026-05-16T13:10:32.216Z",
+    "createdAt": "2026-05-16T13:10:32.216Z",
+    "updatedAt": "2026-05-16T13:10:32.216Z"
+  },
+  {
+    "_id": "2879f46efb4e1ae29738031e",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6835187708456262,
+    "status": "Present",
+    "timestamp": "2026-05-16T13:10:35.621Z",
+    "createdAt": "2026-05-16T13:10:35.621Z",
+    "updatedAt": "2026-05-16T13:10:35.621Z"
+  },
+  {
+    "_id": "c4967eae5d4303530505dfad",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6184088394865639,
+    "status": "Present",
+    "timestamp": "2026-05-16T13:10:38.999Z",
+    "createdAt": "2026-05-16T13:10:38.999Z",
+    "updatedAt": "2026-05-16T13:10:38.999Z"
+  },
+  {
+    "_id": "793fe858d411886dc6b7c244",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6858046688467214,
+    "status": "Present",
+    "timestamp": "2026-05-16T13:10:42.367Z",
+    "createdAt": "2026-05-16T13:10:42.367Z",
+    "updatedAt": "2026-05-16T13:10:42.367Z"
+  },
+  {
+    "_id": "9058ec05ada7075c91d153aa",
+    "studentId": "2c238da776897649572c2488",
+    "confidenceScore": 0.6173700233186292,
+    "status": "Present",
+    "timestamp": "2026-05-16T13:10:52.492Z",
+    "createdAt": "2026-05-16T13:10:52.492Z",
+    "updatedAt": "2026-05-16T13:10:52.492Z"
+  },
+  {
+    "_id": "dbc0493b228736a718da88e0",
+    "studentId": "2c238da776897649572c2488",
+    "confidenceScore": 0.6887358084598745,
+    "status": "Present",
+    "timestamp": "2026-05-16T13:10:55.839Z",
+    "createdAt": "2026-05-16T13:10:55.839Z",
+    "updatedAt": "2026-05-16T13:10:55.839Z"
+  },
+  {
+    "_id": "9c12d209ffba7211fe4f7f58",
+    "studentId": "2c238da776897649572c2488",
+    "confidenceScore": 0.572257986725556,
+    "status": "Present",
+    "timestamp": "2026-05-16T13:10:59.172Z",
+    "createdAt": "2026-05-16T13:10:59.172Z",
+    "updatedAt": "2026-05-16T13:10:59.172Z"
+  },
+  {
+    "_id": "24060d1e8605cdf2da81938b",
+    "studentId": "2c238da776897649572c2488",
+    "confidenceScore": 0.5170932628718075,
+    "status": "Present",
+    "timestamp": "2026-05-16T13:11:02.512Z",
+    "createdAt": "2026-05-16T13:11:02.512Z",
+    "updatedAt": "2026-05-16T13:11:02.512Z"
+  },
+  {
+    "_id": "fffee05eb15d9580366f2d29",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5902492888976545,
+    "status": "Present",
+    "timestamp": "2026-05-16T13:11:05.936Z",
+    "createdAt": "2026-05-16T13:11:05.936Z",
+    "updatedAt": "2026-05-16T13:11:05.936Z"
+  },
+  {
+    "_id": "29194c9dac47f844f17efb8b",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5063072676593205,
+    "status": "Present",
+    "timestamp": "2026-05-16T13:21:46.204Z",
+    "createdAt": "2026-05-16T13:21:46.204Z",
+    "updatedAt": "2026-05-16T13:21:46.204Z"
+  },
+  {
+    "_id": "7ffc057dc993ae55eaffaf54",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6216446265662713,
+    "status": "Present",
+    "timestamp": "2026-05-16T13:21:49.673Z",
+    "createdAt": "2026-05-16T13:21:49.673Z",
+    "updatedAt": "2026-05-16T13:21:49.673Z"
+  },
+  {
+    "_id": "fd05cd246f7f81c758f4d87c",
+    "studentId": "ae0dbdab53ce8222586f05ea",
+    "confidenceScore": 0.48159579064125224,
+    "status": "Present",
+    "timestamp": "2026-05-16T13:29:54.640Z",
+    "createdAt": "2026-05-16T13:29:54.640Z",
+    "updatedAt": "2026-05-16T13:29:54.640Z"
+  },
+  {
+    "_id": "024e0f723affc4cd84a9971b",
+    "studentId": "ae0dbdab53ce8222586f05ea",
+    "confidenceScore": 0.45835482217337653,
+    "status": "Present",
+    "timestamp": "2026-05-16T13:30:02.300Z",
+    "createdAt": "2026-05-16T13:30:02.300Z",
+    "updatedAt": "2026-05-16T13:30:02.300Z"
+  },
+  {
+    "_id": "c6380f8c02a733ab558ed488",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6030402981208931,
+    "status": "Present",
+    "timestamp": "2026-05-16T13:30:09.868Z",
+    "createdAt": "2026-05-16T13:30:09.868Z",
+    "updatedAt": "2026-05-16T13:30:09.868Z"
+  },
+  {
+    "_id": "46821a2a090ce3f67cc85c22",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6422790853203428,
+    "status": "Present",
+    "timestamp": "2026-05-16T13:30:13.271Z",
+    "createdAt": "2026-05-16T13:30:13.271Z",
+    "updatedAt": "2026-05-16T13:30:13.271Z"
+  },
+  {
+    "_id": "241fcbe56ade64eb72493167",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.49421932333261875,
+    "status": "Present",
+    "timestamp": "2026-05-16T13:30:16.614Z",
+    "createdAt": "2026-05-16T13:30:16.614Z",
+    "updatedAt": "2026-05-16T13:30:16.614Z"
+  },
+  {
+    "_id": "a9d72c995dff6d60193e8fcc",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.669777429544385,
+    "status": "Present",
+    "timestamp": "2026-05-16T17:31:40.539Z",
+    "createdAt": "2026-05-16T17:31:40.540Z",
+    "updatedAt": "2026-05-16T17:31:40.540Z"
+  },
+  {
+    "_id": "5c02caa2e165238708f25a38",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.588302010109068,
+    "status": "Present",
+    "timestamp": "2026-05-16T17:31:44.873Z",
+    "createdAt": "2026-05-16T17:31:44.873Z",
+    "updatedAt": "2026-05-16T17:31:44.873Z"
+  },
+  {
+    "_id": "ce10eabf2b4682e669ad3369",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6116653216998644,
+    "status": "Present",
+    "timestamp": "2026-05-16T17:38:48.968Z",
+    "createdAt": "2026-05-16T17:38:48.968Z",
+    "updatedAt": "2026-05-16T17:38:48.968Z"
+  },
+  {
+    "_id": "bf1ab5ebf2100c41707c9eda",
+    "studentId": "ac2583344496565b4ee42181",
+    "confidenceScore": 0.5382090870287014,
+    "status": "Present",
+    "timestamp": "2026-05-16T17:38:52.312Z",
+    "createdAt": "2026-05-16T17:38:52.312Z",
+    "updatedAt": "2026-05-16T17:38:52.312Z"
+  },
+  {
+    "_id": "7d6205fef445f21700c038f4",
+    "studentId": "ac2583344496565b4ee42181",
+    "confidenceScore": 0.6018036889885561,
+    "status": "Present",
+    "timestamp": "2026-05-16T17:38:57.398Z",
+    "createdAt": "2026-05-16T17:38:57.398Z",
+    "updatedAt": "2026-05-16T17:38:57.398Z"
+  },
+  {
+    "_id": "5ee1bc64100cc4272e4937b9",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6568461525486609,
+    "status": "Present",
+    "timestamp": "2026-05-16T18:35:52.955Z",
+    "createdAt": "2026-05-16T18:35:52.955Z",
+    "updatedAt": "2026-05-16T18:35:52.955Z"
+  },
+  {
+    "_id": "4f6a990985a6edf84730e1d3",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5963301701011811,
+    "status": "Present",
+    "timestamp": "2026-05-16T18:36:14.887Z",
+    "createdAt": "2026-05-16T18:36:14.887Z",
+    "updatedAt": "2026-05-16T18:36:14.887Z"
+  },
+  {
+    "_id": "51cedf976b14576eec5a5a81",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6132979000373595,
+    "status": "Present",
+    "timestamp": "2026-05-16T18:39:34.261Z",
+    "createdAt": "2026-05-16T18:39:34.261Z",
+    "updatedAt": "2026-05-16T18:39:34.261Z"
+  },
+  {
+    "_id": "edc8c6dc5107701d67f585cf",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6085371345880111,
+    "status": "Present",
+    "timestamp": "2026-05-16T18:39:37.598Z",
+    "createdAt": "2026-05-16T18:39:37.598Z",
+    "updatedAt": "2026-05-16T18:39:37.598Z"
+  },
+  {
+    "_id": "ad099ca920d102fd7d5cd814",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6029584751079269,
+    "status": "Present",
+    "timestamp": "2026-05-16T18:39:40.953Z",
+    "createdAt": "2026-05-16T18:39:40.953Z",
+    "updatedAt": "2026-05-16T18:39:40.953Z"
+  },
+  {
+    "_id": "b60e252205b75a4ae7021c13",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5000492929544245,
+    "status": "Present",
+    "timestamp": "2026-05-16T19:13:37.780Z",
+    "createdAt": "2026-05-16T19:13:37.780Z",
+    "updatedAt": "2026-05-16T19:13:37.780Z"
+  },
+  {
+    "_id": "63730f63ce8d222c233ff01e",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5316248885252604,
+    "status": "Present",
+    "timestamp": "2026-05-16T19:16:11.769Z",
+    "createdAt": "2026-05-16T19:16:11.770Z",
+    "updatedAt": "2026-05-16T19:16:11.770Z"
+  },
+  {
+    "_id": "bf0c44f76b98c8facf61bf6f",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5537873258794221,
+    "status": "Present",
+    "timestamp": "2026-05-16T19:16:15.090Z",
+    "createdAt": "2026-05-16T19:16:15.091Z",
+    "updatedAt": "2026-05-16T19:16:15.091Z"
+  },
+  {
+    "_id": "66bb4524765439056ed97272",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5861928625487732,
+    "status": "Present",
+    "timestamp": "2026-05-16T19:16:18.428Z",
+    "createdAt": "2026-05-16T19:16:18.428Z",
+    "updatedAt": "2026-05-16T19:16:18.428Z"
+  },
+  {
+    "_id": "02b09c9a738be6351a096897",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6002174607404105,
+    "status": "Present",
+    "timestamp": "2026-05-16T19:16:21.767Z",
+    "createdAt": "2026-05-16T19:16:21.767Z",
+    "updatedAt": "2026-05-16T19:16:21.767Z"
+  },
+  {
+    "_id": "e8d88dc06aa9be92b6358828",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5405500647654691,
+    "status": "Present",
+    "timestamp": "2026-05-16T19:16:29.388Z",
+    "createdAt": "2026-05-16T19:16:29.388Z",
+    "updatedAt": "2026-05-16T19:16:29.388Z"
+  },
+  {
+    "_id": "b1cddd87676825d1c52a0b10",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5931370712141613,
+    "status": "Present",
+    "timestamp": "2026-05-16T19:16:38.712Z",
+    "createdAt": "2026-05-16T19:16:38.712Z",
+    "updatedAt": "2026-05-16T19:16:38.712Z"
+  },
+  {
+    "_id": "c0bac5788d3bf9afec1f8089",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5343957192093304,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:18:25.464Z",
+    "createdAt": "2026-05-16T19:18:25.464Z",
+    "updatedAt": "2026-05-16T19:18:25.464Z"
+  },
+  {
+    "_id": "ad5e56cb4273e356e1e7c5d1",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5676725304492863,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:18:45.732Z",
+    "createdAt": "2026-05-16T19:18:45.733Z",
+    "updatedAt": "2026-05-16T19:18:45.733Z"
+  },
+  {
+    "_id": "773100930a7a8dd5bd6b0c34",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6194944966343483,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:18:49.172Z",
+    "createdAt": "2026-05-16T19:18:49.172Z",
+    "updatedAt": "2026-05-16T19:18:49.172Z"
+  },
+  {
+    "_id": "4a5307d697dc8ba190789ad3",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5554866366480838,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:18:52.534Z",
+    "createdAt": "2026-05-16T19:18:52.535Z",
+    "updatedAt": "2026-05-16T19:18:52.535Z"
+  },
+  {
+    "_id": "42ac4d7a2c26d84c75a31696",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5963664216154996,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:19:27.299Z",
+    "createdAt": "2026-05-16T19:19:27.299Z",
+    "updatedAt": "2026-05-16T19:19:27.299Z"
+  },
+  {
+    "_id": "7c03eec3dc85579e40051bfb",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5966743332470985,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:19:30.655Z",
+    "createdAt": "2026-05-16T19:19:30.655Z",
+    "updatedAt": "2026-05-16T19:19:30.655Z"
+  },
+  {
+    "_id": "adeba01d7027726540c18373",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5061030880456849,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:19:35.838Z",
+    "createdAt": "2026-05-16T19:19:35.838Z",
+    "updatedAt": "2026-05-16T19:19:35.838Z"
+  },
+  {
+    "_id": "c1775075b2f7989e86d2518c",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5364042634239337,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:20:16.191Z",
+    "createdAt": "2026-05-16T19:20:16.191Z",
+    "updatedAt": "2026-05-16T19:20:16.191Z"
+  },
+  {
+    "_id": "8043f12ca937d32f182589a6",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.612389831928517,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:20:40.215Z",
+    "createdAt": "2026-05-16T19:20:40.215Z",
+    "updatedAt": "2026-05-16T19:20:40.215Z"
+  },
+  {
+    "_id": "d93c168d334a363a28044755",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6667254239980103,
+    "location": "IT CENTER",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:21:34.413Z",
+    "createdAt": "2026-05-16T19:21:34.414Z",
+    "updatedAt": "2026-05-16T19:21:34.414Z"
+  },
+  {
+    "_id": "32c23039f1db6582781469b2",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6264008536882961,
+    "location": "IT CENTER",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:21:37.806Z",
+    "createdAt": "2026-05-16T19:21:37.806Z",
+    "updatedAt": "2026-05-16T19:21:37.806Z"
+  },
+  {
+    "_id": "c867f4909a4742741c3b202f",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6175436831796988,
+    "location": "DORMITORY",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:21:48.033Z",
+    "createdAt": "2026-05-16T19:21:48.033Z",
+    "updatedAt": "2026-05-16T19:21:48.033Z"
+  },
+  {
+    "_id": "f1aa41b633309bd10dbabb80",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5913826734674483,
+    "location": "DORMITORY",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:21:51.376Z",
+    "createdAt": "2026-05-16T19:21:51.376Z",
+    "updatedAt": "2026-05-16T19:21:51.376Z"
+  },
+  {
+    "_id": "ef656af9eae9dc63e5573610",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6075265277063813,
+    "location": "DORMITORY",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:24:18.279Z",
+    "createdAt": "2026-05-16T19:24:18.280Z",
+    "updatedAt": "2026-05-16T19:24:18.280Z"
+  },
+  {
+    "_id": "c0810c2b9e2d1f50a5760634",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6175004660935994,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:33:31.645Z",
+    "createdAt": "2026-05-16T19:33:31.646Z",
+    "updatedAt": "2026-05-16T19:33:31.646Z"
+  },
+  {
+    "_id": "eba093a55829707dbbf08c55",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.616438876702455,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:33:34.998Z",
+    "createdAt": "2026-05-16T19:33:34.998Z",
+    "updatedAt": "2026-05-16T19:33:34.998Z"
+  },
+  {
+    "_id": "d4dc54687a042406d1fe2349",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6094887015317516,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:33:38.376Z",
+    "createdAt": "2026-05-16T19:33:38.376Z",
+    "updatedAt": "2026-05-16T19:33:38.376Z"
+  },
+  {
+    "_id": "e9ed4ce233007dc5dd4677f3",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5687222866135353,
+    "location": "IT CENTER",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:33:41.720Z",
+    "createdAt": "2026-05-16T19:33:41.720Z",
+    "updatedAt": "2026-05-16T19:33:41.720Z"
+  },
+  {
+    "_id": "32687a23ad347722cd0b9af0",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6017583361722764,
+    "location": "IT CENTER",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:33:45.066Z",
+    "createdAt": "2026-05-16T19:33:45.066Z",
+    "updatedAt": "2026-05-16T19:33:45.066Z"
+  },
+  {
+    "_id": "8ff76b72d08401e6181da923",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6180205019928997,
+    "location": "IT CENTER",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:33:48.398Z",
+    "createdAt": "2026-05-16T19:33:48.398Z",
+    "updatedAt": "2026-05-16T19:33:48.398Z"
+  },
+  {
+    "_id": "651d5a5495d3cdb790153ed3",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6075180543145199,
+    "location": "DORMITORY",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:33:51.815Z",
+    "createdAt": "2026-05-16T19:33:51.815Z",
+    "updatedAt": "2026-05-16T19:33:51.815Z"
+  },
+  {
+    "_id": "31934be408fe42f41d403383",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6110474240395042,
+    "location": "DORMITORY",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:33:55.223Z",
+    "createdAt": "2026-05-16T19:33:55.223Z",
+    "updatedAt": "2026-05-16T19:33:55.223Z"
+  },
+  {
+    "_id": "d27236750b03713d62f57ead",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6115529956923758,
+    "location": "DORMITORY",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:33:58.579Z",
+    "createdAt": "2026-05-16T19:33:58.579Z",
+    "updatedAt": "2026-05-16T19:33:58.579Z"
+  },
+  {
+    "_id": "2d2dfd08c9e5eb3b19cb8264",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5958875211434197,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:34:01.917Z",
+    "createdAt": "2026-05-16T19:34:01.917Z",
+    "updatedAt": "2026-05-16T19:34:01.917Z"
+  },
+  {
+    "_id": "3f3803c108ffbe0e66f22aa1",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5190489574934629,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:44:20.548Z",
+    "createdAt": "2026-05-16T19:44:20.548Z",
+    "updatedAt": "2026-05-16T19:44:20.548Z"
+  },
+  {
+    "_id": "f3f39e19d632bb148e62891a",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6605424104856749,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:44:23.907Z",
+    "createdAt": "2026-05-16T19:44:23.907Z",
+    "updatedAt": "2026-05-16T19:44:23.907Z"
+  },
+  {
+    "_id": "c70e05da259060f1065a638c",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5299850957238814,
+    "location": "IT CENTER",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:44:32.786Z",
+    "createdAt": "2026-05-16T19:44:32.786Z",
+    "updatedAt": "2026-05-16T19:44:32.786Z"
+  },
+  {
+    "_id": "bdfdef01dedcdf6a81c0c2bf",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6925666911181793,
+    "location": "IT CENTER",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:44:36.231Z",
+    "createdAt": "2026-05-16T19:44:36.231Z",
+    "updatedAt": "2026-05-16T19:44:36.231Z"
+  },
+  {
+    "_id": "6d6d17d8415b15ec9c7f35d0",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.46737376119303675,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:58:23.665Z",
+    "createdAt": "2026-05-16T19:58:23.665Z",
+    "updatedAt": "2026-05-16T19:58:23.665Z"
+  },
+  {
+    "_id": "3d42a9752b563650d7f71549",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5753748306140201,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-05-16T19:58:36.965Z",
+    "createdAt": "2026-05-16T19:58:36.965Z",
+    "updatedAt": "2026-05-16T19:58:36.965Z"
+  },
+  {
+    "_id": "1373fd9a132784d50a97b8d0",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5268795635762569,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-05-16T20:01:20.089Z",
+    "createdAt": "2026-05-16T20:01:20.089Z",
+    "updatedAt": "2026-05-16T20:01:20.089Z"
+  },
+  {
+    "_id": "f1ca91f153002a1e881fca1d",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5065754467316248,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-05-16T20:01:24.328Z",
+    "createdAt": "2026-05-16T20:01:24.328Z",
+    "updatedAt": "2026-05-16T20:01:24.328Z"
+  },
+  {
+    "_id": "e996a6eae0917f209745b791",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5576431018213429,
+    "location": "DORMITORY",
+    "status": "Present",
+    "timestamp": "2026-05-16T20:01:28.545Z",
+    "createdAt": "2026-05-16T20:01:28.545Z",
+    "updatedAt": "2026-05-16T20:01:28.545Z"
+  },
+  {
+    "_id": "bd279d9aab241ae2fba06a91",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.4992641936059776,
+    "location": "DORMITORY",
+    "status": "Present",
+    "timestamp": "2026-05-16T20:01:31.886Z",
+    "createdAt": "2026-05-16T20:01:31.886Z",
+    "updatedAt": "2026-05-16T20:01:31.886Z"
+  },
+  {
+    "_id": "4118c67404f7bb84b904d1ee",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5544868214745399,
+    "location": "IT CENTER",
+    "status": "Present",
+    "timestamp": "2026-05-16T20:01:36.091Z",
+    "createdAt": "2026-05-16T20:01:36.092Z",
+    "updatedAt": "2026-05-16T20:01:36.092Z"
+  },
+  {
+    "_id": "f1e860c1e7ba82bb518cc58f",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.48902712487876276,
+    "location": "IT CENTER",
+    "status": "Present",
+    "timestamp": "2026-05-16T20:01:39.433Z",
+    "createdAt": "2026-05-16T20:01:39.433Z",
+    "updatedAt": "2026-05-16T20:01:39.433Z"
+  },
+  {
+    "_id": "82f035526db31b4a95e0839c",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.471178831719563,
+    "location": "IT CENTER",
+    "status": "Present",
+    "timestamp": "2026-05-16T20:01:42.801Z",
+    "createdAt": "2026-05-16T20:01:42.801Z",
+    "updatedAt": "2026-05-16T20:01:42.801Z"
+  },
+  {
+    "_id": "9d2abfb21f790c223c321e86",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5175667789696021,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-06-10T20:36:41.358Z",
+    "createdAt": "2026-06-10T20:36:41.358Z",
+    "updatedAt": "2026-06-10T20:36:41.358Z"
+  },
+  {
+    "_id": "a8ddcf0f32c614ec7c9003a5",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5156078102015829,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-06-10T20:36:44.746Z",
+    "createdAt": "2026-06-10T20:36:44.747Z",
+    "updatedAt": "2026-06-10T20:36:44.747Z"
+  },
+  {
+    "_id": "2462f214a76eba897d17ab82",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.4536063710897946,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-06-10T20:36:48.134Z",
+    "createdAt": "2026-06-10T20:36:48.134Z",
+    "updatedAt": "2026-06-10T20:36:48.134Z"
+  },
+  {
+    "_id": "bc00e6f407a640a1aab537da",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.47966472886323785,
+    "location": "DORMITORY",
+    "status": "Present",
+    "timestamp": "2026-06-10T20:36:51.542Z",
+    "createdAt": "2026-06-10T20:36:51.542Z",
+    "updatedAt": "2026-06-10T20:36:51.542Z"
+  },
+  {
+    "_id": "ddf40e09c70a26306acfe6d3",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.48861698973992795,
+    "location": "DORMITORY",
+    "status": "Present",
+    "timestamp": "2026-06-10T20:36:55.008Z",
+    "createdAt": "2026-06-10T20:36:55.008Z",
+    "updatedAt": "2026-06-10T20:36:55.008Z"
+  },
+  {
+    "_id": "b0704179ab28cc11b2260a06",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.4956628222976083,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-06-10T20:48:59.385Z",
+    "createdAt": "2026-06-10T20:48:59.385Z",
+    "updatedAt": "2026-06-10T20:48:59.385Z"
+  },
+  {
+    "_id": "923c22ead8695bc0ddbd5a1a",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.4833194783361454,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-06-10T20:49:04.497Z",
+    "createdAt": "2026-06-10T20:49:04.497Z",
+    "updatedAt": "2026-06-10T20:49:04.497Z"
+  },
+  {
+    "_id": "e342337358234bb01de90ac9",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.47316626949137075,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-06-10T20:49:07.864Z",
+    "createdAt": "2026-06-10T20:49:07.865Z",
+    "updatedAt": "2026-06-10T20:49:07.865Z"
+  },
+  {
+    "_id": "450d7bc6e006585944283d63",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.5754831392933144,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-06-10T20:49:15.156Z",
+    "createdAt": "2026-06-10T20:49:15.156Z",
+    "updatedAt": "2026-06-10T20:49:15.156Z"
+  },
+  {
+    "_id": "7e18688ea9dd8e47b2e1fe67",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6179888035404771,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-06-10T20:50:10.054Z",
+    "createdAt": "2026-06-10T20:50:10.054Z",
+    "updatedAt": "2026-06-10T20:50:10.054Z"
+  },
+  {
+    "_id": "61365327bb68299b12ec2850",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6218865515843383,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-06-10T20:50:33.498Z",
+    "createdAt": "2026-06-10T20:50:33.498Z",
+    "updatedAt": "2026-06-10T20:50:33.498Z"
+  },
+  {
+    "_id": "dc90ddb767add3c54ff6313b",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.4606167721041252,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-06-10T20:50:40.370Z",
+    "createdAt": "2026-06-10T20:50:40.370Z",
+    "updatedAt": "2026-06-10T20:50:40.370Z"
+  },
+  {
+    "_id": "54ff124ad07a94b625f2015c",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.47301653137816735,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-06-10T20:52:24.222Z",
+    "createdAt": "2026-06-10T20:52:24.222Z",
+    "updatedAt": "2026-06-10T20:52:24.222Z"
+  },
+  {
+    "_id": "132004e16849a71a06d5bac3",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6886771190570484,
+    "location": "MAIN BLOCK",
+    "status": "Present",
+    "timestamp": "2026-06-10T20:52:27.580Z",
+    "createdAt": "2026-06-10T20:52:27.580Z",
+    "updatedAt": "2026-06-10T20:52:27.580Z"
+  },
+  {
+    "_id": "c841f2ea97145f5fff1e8a42",
+    "studentId": "ea68aaa6515756dc362c4ac7",
+    "confidenceScore": 0.6628591367387304,
+    "location": "DORMITORY",
+    "status": "Present",
+    "timestamp": "2026-06-12T06:53:41.905Z",
+    "createdAt": "2026-06-12T06:53:41.905Z",
+    "updatedAt": "2026-06-12T06:53:41.905Z"
+  }
+]

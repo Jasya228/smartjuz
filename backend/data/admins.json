@@ -1,0 +1,38 @@
+[
+  {
+    "_id": "36ed61f32551f49e085dd400",
+    "name": "Главный Администратор",
+    "email": "admin@aspc.kz",
+    "password": "admin123",
+    "role": "admin",
+    "createdAt": "2026-05-16T06:34:36.942Z",
+    "updatedAt": "2026-05-16T06:34:36.946Z"
+  },
+  {
+    "_id": "36ed61f32551f49e085dd401",
+    "name": "Куратор П-22",
+    "email": "teacher@aspc.kz",
+    "password": "admin123",
+    "role": "teacher",
+    "createdAt": "2026-05-16T06:34:36.942Z",
+    "updatedAt": "2026-05-16T06:34:36.946Z"
+  },
+  {
+    "_id": "36ed61f32551f49e085dd402",
+    "name": "Родитель Студента",
+    "email": "parent@aspc.kz",
+    "password": "admin123",
+    "role": "parent",
+    "createdAt": "2026-05-16T06:34:36.942Z",
+    "updatedAt": "2026-05-16T06:34:36.946Z"
+  },
+  {
+    "_id": "36ed61f32551f49e085dd403",
+    "name": "Admin Legacy",
+    "email": "admin@college.kz",
+    "password": "admin123",
+    "role": "admin",
+    "createdAt": "2026-05-16T06:34:36.942Z",
+    "updatedAt": "2026-05-16T06:34:36.946Z"
+  }
+]
