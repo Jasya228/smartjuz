@@ -252,8 +252,8 @@ const KioskScanner = () => {
         </div>
       </div>
 
-      {/* Main Scanner Area - FULL SCREEN on mobile */}
-      <div className="relative w-full h-full md:w-[500px] md:h-[700px] md:rounded-[40px] overflow-hidden bg-gray-900 z-10">
+      {/* Main Scanner Area - Terminal Style on Mobile too */}
+      <div className="relative w-[95%] h-[75vh] rounded-[30px] md:w-[500px] md:h-[700px] md:rounded-[40px] overflow-hidden bg-gray-900 z-10 my-auto border-2 border-white/10 shadow-2xl mt-24 md:mt-auto">
         {!hasStarted ? (
           <div className="h-full flex flex-col items-center justify-center p-8 text-center bg-black">
             <motion.div 

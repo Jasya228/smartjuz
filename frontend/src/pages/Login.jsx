@@ -29,9 +29,9 @@ const Login = () => {
     }
   };
 
-  const quickLogin = (demoEmail) => {
+  const quickLogin = (demoEmail, pass = 'admin123') => {
     setEmail(demoEmail);
-    setPassword('admin123');
+    setPassword(pass);
     // Using setTimeout to allow state to update before submitting
     setTimeout(() => {
       document.getElementById('login-btn').click();
@@ -122,15 +122,12 @@ const Login = () => {
           <div className="mt-12 border-t border-white/5 pt-8">
             <p className="text-[9px] font-black text-gray-600 text-center mb-6 tracking-[0.3em] uppercase">Emergency Overrides</p>
             <div className="grid grid-cols-1 gap-2">
-              <button onClick={() => quickLogin('admin@aspc.kz')} className="py-3 bg-white/5 hover:bg-white/10 rounded-xl text-[10px] font-bold text-gray-400 hover:text-primary transition-all border border-white/5 uppercase tracking-widest">
-                Admin Console
-              </button>
               <div className="grid grid-cols-2 gap-2">
-                <button onClick={() => quickLogin('teacher@aspc.kz')} className="py-3 bg-white/5 hover:bg-white/10 rounded-xl text-[10px] font-bold text-gray-400 hover:text-blue-400 transition-all border border-white/5 uppercase tracking-widest">
-                  Curator
+                <button onClick={() => quickLogin('admin@aspc.kz')} className="py-3 bg-white/5 hover:bg-white/10 rounded-xl text-[10px] font-bold text-gray-400 hover:text-primary transition-all border border-white/5 uppercase tracking-widest">
+                  Admin Console
                 </button>
-                <button onClick={() => quickLogin('parent@aspc.kz')} className="py-3 bg-white/5 hover:bg-white/10 rounded-xl text-[10px] font-bold text-gray-400 hover:text-purple-400 transition-all border border-white/5 uppercase tracking-widest">
-                  Observer
+                <button onClick={() => quickLogin('kiosk@aspc.kz', 'kiosk123')} className="py-3 bg-white/5 hover:bg-white/10 rounded-xl text-[10px] font-bold text-primary hover:bg-primary/20 transition-all border border-primary/20 uppercase tracking-widest shadow-[0_0_15px_rgba(16,185,129,0.1)]">
+                  Start Kiosk
                 </button>
               </div>
             </div>

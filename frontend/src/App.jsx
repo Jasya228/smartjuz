@@ -18,8 +18,24 @@ function App() {
     return (
       <Router>
         <Routes>
-          <Route path="/kiosk" element={<KioskScanner />} />
           <Route path="*" element={<Login />} />
+        </Routes>
+      </Router>
+    );
+  }
+
+  let userRole = 'admin';
+  try {
+    const parsed = JSON.parse(adminInfo);
+    userRole = parsed.role || 'admin';
+  } catch (e) {}
+
+  if (userRole === 'kiosk') {
+    return (
+      <Router>
+        <Routes>
+          <Route path="/kiosk" element={<KioskScanner />} />
+          <Route path="*" element={<Navigate to="/kiosk" replace />} />
         </Routes>
       </Router>
     );

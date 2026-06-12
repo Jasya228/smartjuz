@@ -9,11 +9,17 @@ const seedUsers = () => {
   if (users.length === 0) {
     Admin.create({
       name: 'Администратор',
-      email: 'admin@college.kz',
+      email: 'admin@aspc.kz',
       password: 'admin123',
       role: 'admin'
     });
-    console.log('Default admin created: admin@college.kz / admin123');
+    Admin.create({
+      name: 'Киоск Терминал',
+      email: 'kiosk@aspc.kz',
+      password: 'kiosk123',
+      role: 'kiosk'
+    });
+    console.log('Default users created: admin@aspc.kz & kiosk@aspc.kz');
   }
 };
 
