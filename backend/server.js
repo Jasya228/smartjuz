@@ -89,12 +89,14 @@ app.listen(PORT, async () => {
   console.log(`Server running on port ${PORT}`);
 
   // Регистрируем webhook в Telegram
-  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const Config = db.getCollection('settings');
+  const settings = Config ? Config.find({ id: 'telegram' })[0] || {} : {};
+  const activeToken = settings.botToken || process.env.TELEGRAM_BOT_TOKEN;
   const webhookUrl = process.env.TELEGRAM_WEBHOOK_URL;
 
-  if (token && webhookUrl) {
+  if (activeToken && webhookUrl) {
     try {
-      await axios.post(`https://api.telegram.org/bot${token}/setWebhook`, {
+      await axios.post(`https://api.telegram.org/bot${activeToken}/setWebhook`, {
         url: `${webhookUrl}/api/telegram/webhook`
       });
       console.log(`✅ Telegram Webhook set: ${webhookUrl}/api/telegram/webhook`);
@@ -103,26 +105,37 @@ app.listen(PORT, async () => {
     }
   } else {
     console.log('ℹ️  TELEGRAM_WEBHOOK_URL not set — forcing Polling mode.');
-    if (token) {
+    if (activeToken) {
       try {
         // Принудительно удаляем старый вебхук, чтобы Polling заработал
-        await axios.get(`https://api.telegram.org/bot${token}/deleteWebhook`);
+        await axios.get(`https://api.telegram.org/bot${activeToken}/deleteWebhook`);
         console.log('🧹 [TG]: Old webhook deleted for polling.');
       } catch (err) {
         console.log('⚠️ [TG]: Could not delete webhook:', err.message);
       }
-      startPolling(token);
     }
+    // Always start polling. The loop will wait if token goes missing.
+    startPolling();
   }
 });
 
 // Long polling fallback для localhost
 let pollOffset = 0;
-const startPolling = async (token) => {
+const startPolling = async () => {
   const { handleTelegramUpdate } = await import('./utils/telegramBot.js');
+  
   const poll = async () => {
     try {
-      const resp = await axios.get(`https://api.telegram.org/bot${token}/getUpdates`, {
+      const Config = db.getCollection('settings');
+      const settings = Config ? Config.find({ id: 'telegram' })[0] || {} : {};
+      const activeToken = settings.botToken || process.env.TELEGRAM_BOT_TOKEN;
+
+      if (!activeToken) {
+        await new Promise(r => setTimeout(r, 5000));
+        return poll();
+      }
+
+      const resp = await axios.get(`https://api.telegram.org/bot${activeToken}/getUpdates`, {
         params: { offset: pollOffset, timeout: 30 },
         timeout: 35000
       });
@@ -134,6 +147,7 @@ const startPolling = async (token) => {
     } catch (e) {
       if (!e.code?.includes('ECONNABORTED')) {
         console.error('Polling error:', e.message);
+        await new Promise(r => setTimeout(r, 2000)); // Задержка при ошибке сети
       }
     }
     poll();
