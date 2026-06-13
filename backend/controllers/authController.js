@@ -35,7 +35,15 @@ const generateToken = (id) => {
 export const authAdmin = async (req, res) => {
   const { email, password } = req.body;
 
-  const admin = Admin.findOne({ email });
+  let admin = Admin.findOne({ email });
+  
+  if (!admin) {
+    admin = Admin.findOne({ name: email });
+  }
+  
+  if (!admin && email && !email.includes('@')) {
+    admin = Admin.findOne({ email: `${email}@aspc.kz` });
+  }
 
   if (admin && admin.password === password) {
     res.json({
@@ -48,7 +56,7 @@ export const authAdmin = async (req, res) => {
       token: generateToken(admin._id),
     });
   } else {
-    res.status(401).json({ message: 'Неверный email или пароль' });
+    res.status(401).json({ message: 'Неверный логин или пароль' });
   }
 };
 

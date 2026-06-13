@@ -20,22 +20,17 @@ const Login = () => {
       const data = await res.json();
       if (res.ok) {
         localStorage.setItem('adminInfo', JSON.stringify(data));
-        window.location.href = '/';
+        if (data.role === 'kiosk') {
+          window.location.href = 'https://smartface.aspc.kz/kiosk';
+        } else {
+          window.location.href = '/';
+        }
       } else {
         setError(data.message);
       }
     } catch (err) {
       setError('Ошибка подключения к серверу');
     }
-  };
-
-  const quickLogin = (demoEmail, pass = 'admin123') => {
-    setEmail(demoEmail);
-    setPassword(pass);
-    // Using setTimeout to allow state to update before submitting
-    setTimeout(() => {
-      document.getElementById('login-btn').click();
-    }, 100);
   };
 
   return (
@@ -83,14 +78,14 @@ const Login = () => {
 
           <form onSubmit={handleLogin} className="space-y-6">
             <div className="space-y-1.5">
-              <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest ml-1">Terminal ID (Email)</label>
+              <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest ml-1">Логин (Terminal ID / Email)</label>
               <div className="relative group">
                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-600 group-focus-within:text-primary transition-colors" size={18} />
                 <input 
-                  type="email" 
+                  type="text" 
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                  placeholder="name@terminal.core" 
+                  placeholder="admin или name@terminal.core" 
                   className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:outline-none focus:border-primary/50 focus:bg-white/10 transition-all font-mono text-sm"
                 />
               </div>
@@ -118,20 +113,6 @@ const Login = () => {
               Authorize Entry
             </button>
           </form>
-
-          <div className="mt-12 border-t border-white/5 pt-8">
-            <p className="text-[9px] font-black text-gray-600 text-center mb-6 tracking-[0.3em] uppercase">Emergency Overrides</p>
-            <div className="grid grid-cols-1 gap-2">
-              <div className="grid grid-cols-2 gap-2">
-                <button onClick={() => quickLogin('admin@aspc.kz')} className="py-3 bg-white/5 hover:bg-white/10 rounded-xl text-[10px] font-bold text-gray-400 hover:text-primary transition-all border border-white/5 uppercase tracking-widest">
-                  Admin Console
-                </button>
-                <button onClick={() => quickLogin('kiosk@aspc.kz', 'kiosk123')} className="py-3 bg-white/5 hover:bg-white/10 rounded-xl text-[10px] font-bold text-primary hover:bg-primary/20 transition-all border border-primary/20 uppercase tracking-widest shadow-[0_0_15px_rgba(16,185,129,0.1)]">
-                  Start Kiosk
-                </button>
-              </div>
-            </div>
-          </div>
         </GlassCard>
         
         <p className="text-center mt-8 text-gray-600 text-[10px] font-mono tracking-widest uppercase">
