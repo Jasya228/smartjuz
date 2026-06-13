@@ -3,10 +3,20 @@
  */
 import axios from 'axios';
 import FormData from 'form-data';
+import db from '../db/jsonStore.js';
+
+const getSettings = () => {
+  const Settings = db.getCollection('settings');
+  if (Settings) {
+    return Settings.find({ id: 'telegram' })[0] || {};
+  }
+  return {};
+};
 
 export const sendTelegramMessage = async (text) => {
-  const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID;
+  const config = getSettings();
+  const token = config.botToken || process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = config.mainChatId || process.env.TELEGRAM_CHAT_ID;
   if (!token || !chatId) return;
 
   try {

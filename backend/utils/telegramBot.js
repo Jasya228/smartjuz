@@ -13,7 +13,15 @@ import axios from 'axios';
 import FormData from 'form-data';
 import db from '../db/jsonStore.js';
 
-const BOT_TOKEN = () => process.env.TELEGRAM_BOT_TOKEN;
+const getSettings = () => {
+  const Settings = db.getCollection('settings');
+  if (Settings) {
+    return Settings.find({ id: 'telegram' })[0] || {};
+  }
+  return {};
+};
+
+const BOT_TOKEN = () => getSettings().botToken || process.env.TELEGRAM_BOT_TOKEN;
 const API_URL = () => `https://api.telegram.org/bot${BOT_TOKEN()}`;
 
 // Коллекции
@@ -186,9 +194,10 @@ export const handleTelegramUpdate = async (update) => {
   const state = dialogState[chatId];
 
   if (state?.step === 'awaiting_code') {
-    const CODE_ADMIN = process.env.TG_CODE_ADMIN || 'ADMIN777';
-    const CODE_CURATOR = process.env.TG_CODE_CURATOR || 'TEACH555';
-    const CODE_PARENT = process.env.TG_CODE_PARENT || 'FAMILY111';
+    const config = getSettings();
+    const CODE_ADMIN = config.codeAdmin || process.env.TG_CODE_ADMIN || 'ADMIN777';
+    const CODE_CURATOR = config.codeCurator || process.env.TG_CODE_CURATOR || 'TEACH555';
+    const CODE_PARENT = config.codeParent || process.env.TG_CODE_PARENT || 'FAMILY111';
 
     if (text === CODE_ADMIN) {
       const old = TgUsers.findOne({ chatId: String(chatId) });
