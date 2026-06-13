@@ -135,8 +135,14 @@ const Settings = () => {
     } catch (err) { console.error(err); }
   };
 
+  const [broadcastConfirm, setBroadcastConfirm] = useState(false);
+
   const handleBroadcast = async () => {
     if (!broadcastText.trim()) return;
+    if (!broadcastConfirm) {
+      setBroadcastConfirm(true);
+      return;
+    }
     try {
       const adminInfo = JSON.parse(localStorage.getItem('adminInfo') || '{}');
       const res = await fetch(`${API_BASE_URL}/telegram/broadcast`, {
@@ -151,6 +157,7 @@ const Settings = () => {
         const data = await res.json();
         alert(`✅ Отправлено сообщений: ${data.count}`);
         setBroadcastText('');
+        setBroadcastConfirm(false);
         setActiveModal(null);
       }
     } catch (err) { console.error(err); alert('Ошибка при отправке.'); }
@@ -530,13 +537,35 @@ const Settings = () => {
             ></textarea>
           </div>
 
-          <button 
-            onClick={handleBroadcast} 
-            disabled={!broadcastText.trim()} 
-            className="w-full bg-blue-500 hover:bg-blue-600 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-blue-500/20 flex justify-center items-center gap-2"
-          >
-            <Send size={18} /> Отправить сообщение
-          </button>
+          {broadcastConfirm ? (
+            <div className="space-y-3 mt-2">
+              <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-3 rounded-xl text-sm font-medium flex items-center gap-2">
+                <Shield size={16} /> Вы уверены? Это сообщение получат {tgUsers.length} человек.
+              </div>
+              <div className="flex gap-2">
+                <button 
+                  onClick={() => setBroadcastConfirm(false)} 
+                  className="flex-1 bg-white/10 hover:bg-white/20 text-white font-bold py-3.5 rounded-xl transition-all"
+                >
+                  Отмена
+                </button>
+                <button 
+                  onClick={handleBroadcast} 
+                  className="flex-1 bg-red-500 hover:bg-red-600 text-white font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-red-500/20 flex justify-center items-center gap-2"
+                >
+                  <Send size={18} /> Да, разослать
+                </button>
+              </div>
+            </div>
+          ) : (
+            <button 
+              onClick={handleBroadcast} 
+              disabled={!broadcastText.trim()} 
+              className="w-full bg-blue-500 hover:bg-blue-600 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-blue-500/20 flex justify-center items-center gap-2"
+            >
+              <Send size={18} /> Отправить сообщение
+            </button>
+          )}
         </div>
       </ModalWrapper>
 
