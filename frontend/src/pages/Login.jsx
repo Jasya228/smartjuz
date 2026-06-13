@@ -85,7 +85,7 @@ const Login = () => {
                   type="text" 
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                  placeholder="admin или name@terminal.core" 
+                  placeholder="ID или email" 
                   className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:outline-none focus:border-primary/50 focus:bg-white/10 transition-all font-mono text-sm"
                 />
               </div>

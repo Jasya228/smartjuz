@@ -33,12 +33,14 @@ const generateToken = (id) => {
 
 // @desc    Auth admin & get token
 export const authAdmin = async (req, res) => {
-  const { email, password } = req.body;
+  const { email: rawEmail, password } = req.body;
+  
+  const email = (rawEmail || '').trim().toLowerCase();
 
   let admin = Admin.findOne({ email });
   
   if (!admin) {
-    admin = Admin.findOne({ name: email });
+    admin = Admin.findOne({ name: rawEmail });
   }
   
   if (!admin && email && !email.includes('@')) {
