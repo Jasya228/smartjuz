@@ -248,6 +248,46 @@ const StepScanFace = ({ formData, onDone, onBack }) => {
     }
   };
 
+  const handleFileUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    setStatus('loading');
+    
+    try {
+      if (!faceapi.nets.tinyFaceDetector.isLoaded) {
+        await Promise.all([
+          faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
+          faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
+          faceapi.nets.faceRecognitionNet.loadFromUri('/models')
+        ]);
+      }
+
+      const img = await faceapi.bufferToImage(file);
+      const detection = await faceapi
+        .detectSingleFace(img, new faceapi.TinyFaceDetectorOptions())
+        .withFaceLandmarks()
+        .withFaceDescriptor();
+
+      if (detection) {
+        setDescriptor(Array.from(detection.descriptor));
+        
+        const canvas = document.createElement('canvas');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        canvas.getContext('2d').drawImage(img, 0, 0);
+        const base64Image = canvas.toDataURL('image/jpeg', 0.8);
+        
+        onDone({ ...formData, faceDescriptor: Array.from(detection.descriptor), image: base64Image });
+        setStatus('captured');
+      } else {
+        setStatus('error');
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus('error');
+    }
+  };
+
   useEffect(() => {
     return () => {
       if (streamRef.current) streamRef.current.getTracks().forEach(t => t.stop());
@@ -304,13 +344,22 @@ const StepScanFace = ({ formData, onDone, onBack }) => {
       </div>
 
       {status === 'idle' && (
-        <button
-          onClick={startCamera}
-          className="w-full bg-primary hover:bg-primary-dark text-black font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all"
-        >
-          <Camera size={18} />
-          Включить камеру и сканировать
-        </button>
+        <div className="space-y-2">
+          <button
+            onClick={startCamera}
+            className="w-full bg-primary hover:bg-primary-dark text-black font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all"
+          >
+            <Camera size={18} />
+            Включить камеру и сканировать
+          </button>
+          
+          <div className="relative">
+            <input type="file" accept="image/*" id="photo-upload" className="hidden" onChange={handleFileUpload} />
+            <label htmlFor="photo-upload" className="w-full bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 border border-blue-500/30 font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer">
+              Загрузить фото из файла
+            </label>
+          </div>
+        </div>
       )}
 
       {status === 'error' && (
@@ -532,10 +581,13 @@ const Students = () => {
               
               <div className="flex justify-between items-start mb-6">
                 {person.image ? (
-                  <div className="w-14 h-14 bg-cover bg-center rounded-2xl border border-white/10" style={{ backgroundImage: `url(${person.image})` }}></div>
+                  <div className="w-14 h-14 bg-cover bg-center rounded-2xl border border-white/10 relative" style={{ backgroundImage: `url(${person.image})` }}>
+                    {person.isActive === false && <div className="absolute inset-0 bg-red-500/50 rounded-2xl flex items-center justify-center"><X size={20} className="text-white"/></div>}
+                  </div>
                 ) : (
-                  <div className="w-14 h-14 bg-gradient-to-br from-white/10 to-transparent rounded-2xl flex items-center justify-center font-black text-2xl text-white/80 border border-white/10">
+                  <div className="w-14 h-14 bg-gradient-to-br from-white/10 to-transparent rounded-2xl flex items-center justify-center font-black text-2xl text-white/80 border border-white/10 relative">
                     {person.fullName[0].toUpperCase()}
+                    {person.isActive === false && <div className="absolute inset-0 bg-red-500/50 rounded-2xl flex items-center justify-center"><X size={20} className="text-white"/></div>}
                   </div>
                 )}
                 <div className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border ${roleColors[person.roleType] || 'border-white/20 text-white/40'}`}>
@@ -663,6 +715,17 @@ const Students = () => {
                       }
                     }}
                   />
+                  
+                  <div className="flex items-center justify-between bg-white/5 border border-white/10 rounded-xl p-4 mt-4">
+                    <span className="text-sm font-bold text-white">Доступ к системе</span>
+                    <button
+                      onClick={() => setEditingStudent({ ...editingStudent, isActive: editingStudent.isActive === false ? true : false })}
+                      className={`w-12 h-6 rounded-full transition-colors relative ${editingStudent.isActive !== false ? 'bg-primary' : 'bg-red-500'}`}
+                    >
+                      <div className={`w-5 h-5 bg-white rounded-full absolute top-0.5 transition-all ${editingStudent.isActive !== false ? 'left-6' : 'left-0.5'}`}></div>
+                    </button>
+                  </div>
+
                   <button
                     onClick={() => handleUpdatePerson(editingStudent)}
                     className="w-full bg-primary hover:bg-primary-dark text-black font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all mt-4"

@@ -18,6 +18,10 @@ const KioskScanner = () => {
   const faceMatcherRef = useRef(null);
   const isScanning = useRef(true);
   const audioCtxRef = useRef(null);
+  
+  // Liveness tracking
+  const livenessHistoryRef = useRef([]);
+  const verifiedFacesRef = useRef(new Set()); // IDs that passed liveness recently
 
   const [selectedLocation, setSelectedLocationState] = useState('MAIN BLOCK');
   const locationRef = useRef('MAIN BLOCK');
@@ -113,6 +117,14 @@ const KioskScanner = () => {
     }
   };
 
+  const getEAR = (eye) => {
+    const dist = (p1, p2) => Math.sqrt(Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2));
+    const v1 = dist(eye[1], eye[5]);
+    const v2 = dist(eye[2], eye[4]);
+    const h = dist(eye[0], eye[3]);
+    return (v1 + v2) / (2.0 * h);
+  };
+
   const handleVideoPlay = async () => {
     while (isScanning.current) {
       if (videoRef.current && !scanResultRef.current) {
@@ -128,8 +140,55 @@ const KioskScanner = () => {
             setTimeout(() => setScanResult(null), 4000);
           } else {
             const match = faceMatcherRef.current.findBestMatch(detection.descriptor);
+            
             if (match.label !== 'unknown') {
-              await logAttendance(match.label, match.distance);
+              // --- LIVENESS DETECTION ---
+              const landmarks = detection.landmarks;
+              const leftEye = landmarks.getLeftEye();
+              const rightEye = landmarks.getRightEye();
+              const nose = landmarks.getNose();
+              const jawOutline = landmarks.getJawOutline();
+              
+              const earL = getEAR(leftEye);
+              const earR = getEAR(rightEye);
+              const avgEAR = (earL + earR) / 2;
+
+              // 3D pose estimate proxy (nose to left edge vs nose to right edge)
+              const distL = Math.abs(nose[0].x - jawOutline[0].x);
+              const distR = Math.abs(nose[0].x - jawOutline[16].x);
+              const poseRatio = distL / (distR + 0.001);
+
+              livenessHistoryRef.current.push({ ear: avgEAR, pose: poseRatio, time: Date.now() });
+              if (livenessHistoryRef.current.length > 20) livenessHistoryRef.current.shift();
+
+              // Check if we have seen enough frames
+              const history = livenessHistoryRef.current;
+              let isLive = verifiedFacesRef.current.has(match.label);
+
+              if (!isLive && history.length > 5) {
+                // Check for blink (EAR drop below 0.25)
+                const hasBlinked = history.some(h => h.ear < 0.25);
+                
+                // Check for 3D micro-movement (variance in poseRatio)
+                const poses = history.map(h => h.pose);
+                const avgPose = poses.reduce((a, b) => a + b, 0) / poses.length;
+                const variance = poses.reduce((a, b) => a + Math.pow(b - avgPose, 2), 0) / poses.length;
+                const hasMovement = variance > 0.0005; // small threshold for micro-movements
+
+                if (hasBlinked || hasMovement) {
+                  isLive = true;
+                  verifiedFacesRef.current.add(match.label);
+                  setTimeout(() => verifiedFacesRef.current.delete(match.label), 60000); // Reset liveness after 1 min
+                }
+              }
+
+              if (isLive) {
+                livenessHistoryRef.current = []; // reset for next person
+                await logAttendance(match.label, match.distance);
+              } else {
+                // Still analyzing liveness
+                // Can optionally show a UI hint "Анализ живости..."
+              }
             } else {
               captureAndReportThreat(videoRef.current);
               playTone('error');
@@ -142,9 +201,13 @@ const KioskScanner = () => {
               setTimeout(() => setScanResult(null), 4000);
             }
           }
+        } else {
+          // No face detected, clear history
+          livenessHistoryRef.current = [];
         }
       }
-      await new Promise(r => setTimeout(r, 800));
+      // Speed up loop to 150ms for better blink capture
+      await new Promise(r => setTimeout(r, 150));
     }
   };
 

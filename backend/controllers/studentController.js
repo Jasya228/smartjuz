@@ -90,7 +90,7 @@ export const deleteStudent = async (req, res) => {
 // @route   PUT /api/students/:id
 // @access  Private
 export const updateStudent = async (req, res) => {
-  const { fullName, group, department, roleType } = req.body;
+  const { fullName, group, department, roleType, isActive } = req.body;
   try {
     const student = Student.findById(req.params.id);
     if (student) {
@@ -98,7 +98,8 @@ export const updateStudent = async (req, res) => {
         fullName,
         group,
         department,
-        roleType
+        roleType,
+        isActive: isActive !== undefined ? isActive : student.isActive
       });
       res.json(updated);
     } else {
