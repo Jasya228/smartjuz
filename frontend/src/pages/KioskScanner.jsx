@@ -77,7 +77,7 @@ const KioskScanner = () => {
           const arr = new Float32Array(student.faceDescriptor);
           return new faceapi.LabeledFaceDescriptors(student._id, [arr]);
         });
-        const matcher = new faceapi.FaceMatcher(labeledDescriptors, 0.42);
+        const matcher = new faceapi.FaceMatcher(labeledDescriptors, 0.5);
         faceMatcherRef.current = matcher;
       }
     } catch (error) {
@@ -204,12 +204,12 @@ const KioskScanner = () => {
                 pose: poseRatio 
               });
               
-              if (livenessHistoryRef.current.length > 8) livenessHistoryRef.current.shift();
+              if (livenessHistoryRef.current.length > 5) livenessHistoryRef.current.shift();
 
               let isLive = verifiedFacesRef.current.has(match.label);
 
               const history = livenessHistoryRef.current;
-              if (!isLive && history.length === 8) {
+              if (!isLive && history.length === 5) {
                 const labels = history.map(h => h.label);
                 const allSameLabel = labels.every(l => l === match.label);
                 
