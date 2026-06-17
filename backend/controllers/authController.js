@@ -3,23 +3,27 @@ import db from '../db/jsonStore.js';
 
 const Admin = db.getCollection('admins');
 
-// Seed admin if not exists
 const seedUsers = () => {
-  const users = Admin.find({});
-  if (users.length === 0) {
+  const adminExists = Admin.findOne({ email: 'admin@aspc.kz' });
+  if (!adminExists) {
     Admin.create({
       name: 'Администратор',
       email: 'admin@aspc.kz',
       password: 'admin123',
       role: 'admin'
     });
+    console.log('Default user created: admin@aspc.kz');
+  }
+
+  const kioskExists = Admin.findOne({ email: 'kiosk@aspc.kz' });
+  if (!kioskExists) {
     Admin.create({
       name: 'Киоск Терминал',
       email: 'kiosk@aspc.kz',
       password: 'kiosk123',
       role: 'kiosk'
     });
-    console.log('Default users created: admin@aspc.kz & kiosk@aspc.kz');
+    console.log('Default user created: kiosk@aspc.kz');
   }
 };
 
