@@ -77,7 +77,7 @@ const KioskScanner = () => {
           const arr = new Float32Array(student.faceDescriptor);
           return new faceapi.LabeledFaceDescriptors(student._id, [arr]);
         });
-        const matcher = new faceapi.FaceMatcher(labeledDescriptors, 0.55);
+        const matcher = new faceapi.FaceMatcher(labeledDescriptors, 0.42);
         faceMatcherRef.current = matcher;
       }
     } catch (error) {
@@ -196,12 +196,54 @@ const KioskScanner = () => {
               const earR = getEAR(rightEye);
               const avgEAR = (earL + earR) / 2;
 
-              livenessHistoryRef.current.push({ ear: avgEAR, pose: poseRatio, time: Date.now() });
-              if (livenessHistoryRef.current.length > 20) livenessHistoryRef.current.shift();
+              livenessHistoryRef.current.push({ 
+                label: match.label,
+                x: nose[0].x,
+                y: nose[0].y,
+                ear: avgEAR, 
+                pose: poseRatio 
+              });
+              
+              if (livenessHistoryRef.current.length > 8) livenessHistoryRef.current.shift();
 
-              // Полностью убираем проверку на "живость" по просьбе пользователя
-              // Теперь пропускает МОМЕНТАЛЬНО, как только узнает лицо
-              let isLive = true;
+              let isLive = verifiedFacesRef.current.has(match.label);
+
+              const history = livenessHistoryRef.current;
+              if (!isLive && history.length === 8) {
+                const labels = history.map(h => h.label);
+                const allSameLabel = labels.every(l => l === match.label);
+                
+                if (allSameLabel) {
+                   const minX = Math.min(...history.map(h => h.x));
+                   const maxX = Math.max(...history.map(h => h.x));
+                   const noseMovement = maxX - minX;
+
+                   const minPose = Math.min(...history.map(h => h.pose));
+                   const maxPose = Math.max(...history.map(h => h.pose));
+                   const poseVar = maxPose - minPose;
+
+                   if (noseMovement > 50) {
+                      if (now - lastPromptTime > 3000) {
+                         setScanResult({ status: 'error', message: 'ОШИБКА', details: 'Стойте смирно' });
+                         setTimeout(() => setScanResult(null), 1500);
+                         lastPromptTime = now;
+                      }
+                      livenessHistoryRef.current = [];
+                   } else if (poseVar < 0.005) {
+                      if (now - lastPromptTime > 3000) {
+                         setScanResult({ status: 'error', message: 'ОБМАН', details: 'Обнаружено фото' });
+                         setTimeout(() => setScanResult(null), 1500);
+                         lastPromptTime = now;
+                      }
+                      livenessHistoryRef.current = [];
+                   } else {
+                      isLive = true;
+                   }
+                } else {
+                   // Если метки скачут между людьми — сбрасываем, чтобы избежать ложных срабатываний
+                   livenessHistoryRef.current = [];
+                }
+              }
 
               if (isLive) {
                 verifiedFacesRef.current.add(match.label);
@@ -255,10 +297,10 @@ const KioskScanner = () => {
         const firstName = data.student?.fullName ? data.student.fullName.split(' ')[0] : 'Студент';
         playTone('success');
         
-        // Voice greeting (Изменено на "Проходите")
-        const msg = new SpeechSynthesisUtterance('Проходите');
-        msg.lang = 'ru-RU';
-        msg.rate = 1.1;
+        // Voice greeting
+        const msg = new SpeechSynthesisUtterance('Welcome');
+        msg.lang = 'en-US';
+        msg.rate = 1.0;
         window.speechSynthesis.speak(msg);
 
         setScanResult({
