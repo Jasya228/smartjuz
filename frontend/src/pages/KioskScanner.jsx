@@ -205,13 +205,8 @@ const KioskScanner = () => {
                 }
 
                 if (!isLive) {
-                  if (now - lastPromptTime > 3000) {
-                     const msgText = challengeRef.current === 'LEFT' ? 'Поверните голову налево' : 'Поверните голову направо';
-                     const msg = new SpeechSynthesisUtterance(msgText);
-                     msg.lang = 'ru-RU';
-                     window.speechSynthesis.speak(msg);
-                     lastPromptTime = now;
-                  }
+                  // Убрали голосовое проговаривание "Поверните голову" по просьбе пользователя
+                  // (оставили только визуальный текст на экране)
                 }
               }
 
