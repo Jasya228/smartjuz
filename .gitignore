@@ -3,3 +3,4 @@ dist/
 .env
 debug.log
 .DS_Store
+backend/data/
