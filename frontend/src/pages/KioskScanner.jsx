@@ -185,10 +185,19 @@ const KioskScanner = () => {
               const landmarks = detection.landmarks;
               const nose = landmarks.getNose();
               const jawOutline = landmarks.getJawOutline();
+              const leftEye = landmarks.getLeftEye();
+              const rightEye = landmarks.getRightEye();
               
               const distL = Math.abs(nose[0].x - jawOutline[0].x);
               const distR = Math.abs(nose[0].x - jawOutline[16].x);
               const poseRatio = distL / (distR + 0.001);
+              
+              const earL = getEAR(leftEye);
+              const earR = getEAR(rightEye);
+              const avgEAR = (earL + earR) / 2;
+
+              livenessHistoryRef.current.push({ ear: avgEAR, pose: poseRatio, time: Date.now() });
+              if (livenessHistoryRef.current.length > 20) livenessHistoryRef.current.shift();
 
               let isLive = verifiedFacesRef.current.has(match.label);
 
