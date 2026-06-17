@@ -193,20 +193,18 @@ const KioskScanner = () => {
               let isLive = verifiedFacesRef.current.has(match.label);
 
               if (!isLive) {
-                if (!challengeRef.current) {
-                  const dir = Math.random() > 0.5 ? 'LEFT' : 'RIGHT';
-                  setActiveChallenge(dir);
-                }
-
-                if (challengeRef.current === 'LEFT' && poseRatio > 1.4) {
-                  isLive = true;
-                } else if (challengeRef.current === 'RIGHT' && poseRatio < 0.6) {
-                  isLive = true;
-                }
-
-                if (!isLive) {
-                  // Убрали голосовое проговаривание "Поверните голову" по просьбе пользователя
-                  // (оставили только визуальный текст на экране)
+                const history = livenessHistoryRef.current;
+                if (history.length > 5) {
+                  const hasBlinked = history.some(h => h.ear < 0.22);
+                  if (hasBlinked) {
+                    isLive = true;
+                  } else {
+                    if (now - lastPromptTime > 3000) {
+                      setScanResult({ status: 'error', message: 'АНАЛИЗ...', details: 'Моргните в камеру' });
+                      setTimeout(() => setScanResult(null), 1500);
+                      lastPromptTime = now;
+                    }
+                  }
                 }
               }
 
@@ -402,17 +400,6 @@ const KioskScanner = () => {
                   <div className="scanner-line absolute left-0 right-0"></div>
                </div>
             </div>
-
-            {activeChallenge && !scanResult && (
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-                className="absolute bottom-20 left-1/2 -translate-x-1/2 z-30 bg-black/80 backdrop-blur-md px-6 py-4 rounded-3xl border-2 border-primary/50 text-center"
-              >
-                <h3 className="text-xl font-black text-white uppercase whitespace-nowrap">
-                  {activeChallenge === 'LEFT' ? 'Поверните налево ←' : 'Поверните направо →'}
-                </h3>
-              </motion.div>
-            )}
 
             <AnimatePresence>
               {scanResult && (

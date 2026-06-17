@@ -215,99 +215,54 @@ const StepScanFace = ({ formData, onDone, onBack }) => {
 
   const runLivenessChallenge = async (stream) => {
     setStatus('scanning');
-    await new Promise(r => setTimeout(r, 2000)); // Ждем пока человек посмотрит в камеру
+    await new Promise(r => setTimeout(r, 1500)); // Ждем пока человек посмотрит в камеру
     
-    // Выбираем случайное задание
-    const isLeft = Math.random() > 0.5;
-    const targetChallenge = isLeft ? 'left' : 'right';
+    let centerPassed = false;
+    let centerAttempts = 0;
+    let finalDetection = null;
     
-    setChallengeType(targetChallenge);
-    setStatus('challenge');
-
-    let challengePassed = false;
-    let attempts = 0;
-    
-    // Цикл проверки поворота головы
-    while (attempts < 100 && !challengePassed && streamRef.current) {
+    // Просто ждем, пока лицо будет по центру
+    while (centerAttempts < 50 && !centerPassed && streamRef.current) {
       if (videoRef.current) {
-        const detection = await faceapi
+        finalDetection = await faceapi
           .detectSingleFace(videoRef.current, new faceapi.TinyFaceDetectorOptions())
-          .withFaceLandmarks();
+          .withFaceLandmarks()
+          .withFaceDescriptor();
 
-        if (detection) {
-          const landmarks = detection.landmarks;
+        if (finalDetection) {
+          const landmarks = finalDetection.landmarks;
           const nose = landmarks.getNose();
           const jawOutline = landmarks.getJawOutline();
-          
           const distL = Math.abs(nose[0].x - jawOutline[0].x);
           const distR = Math.abs(nose[0].x - jawOutline[16].x);
           const poseRatio = distL / (distR + 0.001);
-
-          // В зеркальном отражении (scaleX -1):
-          // Поворот налево (физически) -> нос ближе к левой стороне
-          if (targetChallenge === 'left' && poseRatio < 0.6) {
-             challengePassed = true;
-          } else if (targetChallenge === 'right' && poseRatio > 1.6) {
-             challengePassed = true;
+          
+          if (poseRatio > 0.7 && poseRatio < 1.3) {
+             centerPassed = true;
           }
         }
       }
-      attempts++;
+      centerAttempts++;
       await new Promise(r => setTimeout(r, 150));
     }
 
-    if (challengePassed) {
-       setStatus('success');
-       setChallengeType('center');
-       
-       // Ждем возврата лица в центр для финального снимка
-       let centerPassed = false;
-       let centerAttempts = 0;
-       let finalDetection = null;
-       
-       while (centerAttempts < 50 && !centerPassed && streamRef.current) {
-          if (videoRef.current) {
-            finalDetection = await faceapi
-              .detectSingleFace(videoRef.current, new faceapi.TinyFaceDetectorOptions())
-              .withFaceLandmarks()
-              .withFaceDescriptor();
-
-            if (finalDetection) {
-              const landmarks = finalDetection.landmarks;
-              const nose = landmarks.getNose();
-              const jawOutline = landmarks.getJawOutline();
-              const distL = Math.abs(nose[0].x - jawOutline[0].x);
-              const distR = Math.abs(nose[0].x - jawOutline[16].x);
-              const poseRatio = distL / (distR + 0.001);
-              
-              if (poseRatio > 0.8 && poseRatio < 1.2) {
-                 centerPassed = true;
-              }
-            }
-          }
-          centerAttempts++;
-          await new Promise(r => setTimeout(r, 150));
-       }
-
-       if (centerPassed && finalDetection) {
-          // Делаем финальный снимок
-          const canvas = document.createElement('canvas');
-          canvas.width = videoRef.current.videoWidth;
-          canvas.height = videoRef.current.videoHeight;
-          const ctx = canvas.getContext('2d');
-          ctx.translate(canvas.width, 0);
-          ctx.scale(-1, 1);
-          ctx.drawImage(videoRef.current, 0, 0);
-          
-          const base64Image = canvas.toDataURL('image/jpeg', 0.8);
-          onDone({ ...formData, faceDescriptor: Array.from(finalDetection.descriptor), image: base64Image });
-          
-          setStatus('captured');
-       } else {
-          setStatus('error');
-       }
+    if (centerPassed && finalDetection) {
+      setStatus('success');
+      // Делаем финальный снимок
+      const canvas = document.createElement('canvas');
+      canvas.width = videoRef.current.videoWidth;
+      canvas.height = videoRef.current.videoHeight;
+      const ctx = canvas.getContext('2d');
+      ctx.translate(canvas.width, 0);
+      ctx.scale(-1, 1);
+      ctx.drawImage(videoRef.current, 0, 0);
+      
+      const base64Image = canvas.toDataURL('image/jpeg', 0.8);
+      onDone({ ...formData, faceDescriptor: Array.from(finalDetection.descriptor), image: base64Image });
+      
+      setStatus('captured');
     } else {
-       setStatus('error'); // Не выполнил задание вовремя
+      setStatus('error');
     }
     
     if (streamRef.current) {
