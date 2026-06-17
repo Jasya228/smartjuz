@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import * as faceapi from 'face-api.js';
-import { Camera, CheckCircle, XCircle } from 'lucide-react';
+import { Camera, CheckCircle, XCircle, LogOut } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { API_BASE_URL } from '../config';
 
@@ -126,6 +126,8 @@ const KioskScanner = () => {
   };
 
   const handleVideoPlay = async () => {
+    let lastPromptTime = 0;
+
     while (isScanning.current) {
       if (videoRef.current && !scanResultRef.current) {
         const detection = await faceapi.detectSingleFace(
@@ -134,6 +136,38 @@ const KioskScanner = () => {
         ).withFaceLandmarks().withFaceDescriptor();
 
         if (detection) {
+          const now = Date.now();
+          const boxArea = detection.detection.box.width * detection.detection.box.height;
+          const videoArea = videoRef.current.videoWidth * videoRef.current.videoHeight;
+          const faceRatio = boxArea / videoArea;
+
+          // Проверка расстояния
+          if (faceRatio > 0.35) {
+             if (now - lastPromptTime > 3000) {
+               const msg = new SpeechSynthesisUtterance('Отойдите');
+               msg.lang = 'ru-RU';
+               window.speechSynthesis.speak(msg);
+               lastPromptTime = now;
+               setScanResult({ status: 'error', message: 'ОТОЙДИТЕ', details: 'Лицо слишком близко' });
+               setTimeout(() => setScanResult(null), 2000);
+             }
+             await new Promise(r => setTimeout(r, 150));
+             continue;
+          }
+
+          if (faceRatio < 0.05) {
+             if (now - lastPromptTime > 3000) {
+               const msg = new SpeechSynthesisUtterance('Подойдите');
+               msg.lang = 'ru-RU';
+               window.speechSynthesis.speak(msg);
+               lastPromptTime = now;
+               setScanResult({ status: 'error', message: 'ПОДОЙДИТЕ', details: 'Лицо слишком далеко' });
+               setTimeout(() => setScanResult(null), 2000);
+             }
+             await new Promise(r => setTimeout(r, 150));
+             continue;
+          }
+
           if (!faceMatcherRef.current) {
             playTone('error');
             setScanResult({ status: 'error', message: 'ОШИБКА', details: 'База лиц пуста' });
@@ -153,7 +187,7 @@ const KioskScanner = () => {
               const earR = getEAR(rightEye);
               const avgEAR = (earL + earR) / 2;
 
-              // 3D pose estimate proxy (nose to left edge vs nose to right edge)
+              // 3D pose estimate
               const distL = Math.abs(nose[0].x - jawOutline[0].x);
               const distR = Math.abs(nose[0].x - jawOutline[16].x);
               const poseRatio = distL / (distR + 0.001);
@@ -161,52 +195,59 @@ const KioskScanner = () => {
               livenessHistoryRef.current.push({ ear: avgEAR, pose: poseRatio, time: Date.now() });
               if (livenessHistoryRef.current.length > 20) livenessHistoryRef.current.shift();
 
-              // Check if we have seen enough frames
               const history = livenessHistoryRef.current;
               let isLive = verifiedFacesRef.current.has(match.label);
 
-              if (!isLive && history.length > 5) {
-                // Check for blink (EAR drop below 0.25)
-                const hasBlinked = history.some(h => h.ear < 0.25);
+              if (!isLive && history.length > 8) {
+                // Более жесткая проверка на фото (Спуфинг)
+                // 1. Обязательно моргание
+                const hasBlinked = history.some(h => h.ear < 0.22);
                 
-                // Check for 3D micro-movement (variance in poseRatio)
+                // 2. Обязательно микродвижение (поворот головы в 3D)
                 const poses = history.map(h => h.pose);
                 const avgPose = poses.reduce((a, b) => a + b, 0) / poses.length;
                 const variance = poses.reduce((a, b) => a + Math.pow(b - avgPose, 2), 0) / poses.length;
-                const hasMovement = variance > 0.0005; // small threshold for micro-movements
+                
+                // Увеличили порог variance чтобы тряска телефона не работала
+                const hasMovement = variance > 0.003; 
 
                 if (hasBlinked || hasMovement) {
                   isLive = true;
                   verifiedFacesRef.current.add(match.label);
-                  setTimeout(() => verifiedFacesRef.current.delete(match.label), 60000); // Reset liveness after 1 min
+                  setTimeout(() => verifiedFacesRef.current.delete(match.label), 60000);
+                } else {
+                  // Подсказка если нет живости
+                  if (now - lastPromptTime > 4000) {
+                     setScanResult({ status: 'error', message: 'АНАЛИЗ...', details: 'Поверните немного головой' });
+                     setTimeout(() => setScanResult(null), 1500);
+                     lastPromptTime = now;
+                  }
                 }
               }
 
               if (isLive) {
-                livenessHistoryRef.current = []; // reset for next person
+                livenessHistoryRef.current = [];
                 await logAttendance(match.label, match.distance);
-              } else {
-                // Still analyzing liveness
-                // Can optionally show a UI hint "Анализ живости..."
               }
             } else {
               captureAndReportThreat(videoRef.current);
               playTone('error');
               
-              const msg = new SpeechSynthesisUtterance('Доступ запрещен. Лицо не найдено.');
-              msg.lang = 'ru-RU';
-              window.speechSynthesis.speak(msg);
+              if (now - lastPromptTime > 5000) {
+                const msg = new SpeechSynthesisUtterance('Доступ запрещен.');
+                msg.lang = 'ru-RU';
+                window.speechSynthesis.speak(msg);
+                lastPromptTime = now;
+              }
 
               setScanResult({ status: 'error', message: 'ДОСТУП ЗАПРЕЩЕН', details: 'Лицо не найдено' });
               setTimeout(() => setScanResult(null), 4000);
             }
           }
         } else {
-          // No face detected, clear history
           livenessHistoryRef.current = [];
         }
       }
-      // Speed up loop to 150ms for better blink capture
       await new Promise(r => setTimeout(r, 150));
     }
   };
@@ -232,8 +273,8 @@ const KioskScanner = () => {
         const firstName = data.student?.fullName ? data.student.fullName.split(' ')[0] : 'Студент';
         playTone('success');
         
-        // Voice greeting
-        const msg = new SpeechSynthesisUtterance(`Добро пожаловать, ${firstName}`);
+        // Voice greeting (Изменено на "Проходите")
+        const msg = new SpeechSynthesisUtterance('Проходите');
         msg.lang = 'ru-RU';
         msg.rate = 1.1;
         window.speechSynthesis.speak(msg);
@@ -245,7 +286,6 @@ const KioskScanner = () => {
         });
       } else {
         playTone('error');
-        
         const msg = new SpeechSynthesisUtterance('Ошибка доступа');
         msg.lang = 'ru-RU';
         window.speechSynthesis.speak(msg);
@@ -308,18 +348,32 @@ const KioskScanner = () => {
             SMART<span className="text-primary">JUZ</span>
           </h1>
         </div>
-        <div className="flex bg-black/40 p-1 rounded-xl border border-white/5">
-          {[{id: 'MAIN', name: 'MAIN BLOCK'}, {id: 'IT', name: 'IT CENTER'}, {id: 'DORM', name: 'DORMITORY'}].map(loc => (
-            <button
-              key={loc.id}
-              onClick={() => setSelectedLocation(loc.name)}
-              className={`px-3 py-1.5 rounded-lg text-[9px] font-black transition-all ${
-                selectedLocation === loc.name ? 'bg-primary text-black' : 'text-gray-500'
-              }`}
-            >
-              {loc.id}
-            </button>
-          ))}
+        <div className="flex bg-black/40 p-1 rounded-xl border border-white/5 items-center gap-2">
+          <div className="flex gap-1">
+            {[{id: 'MAIN', name: 'MAIN BLOCK'}, {id: 'IT', name: 'IT CENTER'}, {id: 'DORM', name: 'DORMITORY'}].map(loc => (
+              <button
+                key={loc.id}
+                onClick={() => setSelectedLocation(loc.name)}
+                className={`px-3 py-1.5 rounded-lg text-[9px] font-black transition-all ${
+                  selectedLocation === loc.name ? 'bg-primary text-black' : 'text-gray-500'
+                }`}
+              >
+                {loc.id}
+              </button>
+            ))}
+          </div>
+          <button
+            onClick={() => {
+              if (window.confirm('Выйти из киоска?')) {
+                localStorage.removeItem('adminInfo');
+                window.location.href = '/';
+              }
+            }}
+            className="text-red-500 hover:bg-red-500/20 p-1.5 rounded-lg transition-colors border border-red-500/30"
+            title="Выйти из аккаунта"
+          >
+            <LogOut size={14} />
+          </button>
         </div>
       </div>
 
