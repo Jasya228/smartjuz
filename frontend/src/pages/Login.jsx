@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import GlassCard from '../components/GlassCard';
-import { Camera, Lock, Mail } from 'lucide-react';
+import { Camera, Lock, Mail, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { API_BASE_URL } from '../config';
 
@@ -8,6 +8,35 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [showCommissionPrompt, setShowCommissionPrompt] = useState(false);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('commission') === 'true') {
+      setShowCommissionPrompt(true);
+    }
+  }, []);
+
+  const handleCommissionLogin = async () => {
+    try {
+      const res = await fetch(`${API_BASE_URL}/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: 'admin@aspc.kz', password: 'admin123' })
+      });
+      const data = await res.json();
+      if (res.ok) {
+        localStorage.setItem('adminInfo', JSON.stringify(data));
+        window.location.href = '/';
+      } else {
+        setError('Демо-аккаунт не найден');
+        setShowCommissionPrompt(false);
+      }
+    } catch (err) {
+      setError('Ошибка сервера');
+      setShowCommissionPrompt(false);
+    }
+  };
 
   const handleLogin = async (e) => {
     if (e) e.preventDefault();
@@ -42,6 +71,41 @@ const Login = () => {
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
       </div>
       
+      {showCommissionPrompt && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            className="bg-[#0a0a0a] border border-primary/30 p-8 rounded-3xl max-w-sm w-full shadow-[0_0_80px_rgba(16,185,129,0.15)] text-center relative overflow-hidden"
+          >
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+            
+            <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 text-primary shadow-[0_0_30px_rgba(16,185,129,0.2)]">
+              <Users size={40} />
+            </div>
+            <h2 className="text-2xl font-black text-white mb-2 uppercase tracking-tight">Вы член комиссии?</h2>
+            <p className="text-gray-400 text-sm mb-8 leading-relaxed">
+              Добро пожаловать на защиту дипломного проекта. Желаете войти в панель администратора для проверки системы?
+            </p>
+            
+            <div className="space-y-3">
+              <button 
+                onClick={handleCommissionLogin}
+                className="w-full bg-primary text-black font-black py-4 rounded-xl uppercase text-xs tracking-[0.2em] shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:scale-[1.02] transition-transform"
+              >
+                Да, войти как Админ
+              </button>
+              <button 
+                onClick={() => setShowCommissionPrompt(false)}
+                className="w-full bg-white/5 text-gray-400 font-bold py-4 rounded-xl uppercase text-xs tracking-[0.1em] hover:bg-white/10 hover:text-white transition-colors border border-white/10"
+              >
+                Нет, закрыть
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      )}
+
       <motion.div 
         initial={{ opacity: 0, scale: 0.9, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
