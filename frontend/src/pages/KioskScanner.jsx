@@ -125,6 +125,13 @@ const KioskScanner = () => {
     return (v1 + v2) / (2.0 * h);
   };
 
+  const [activeChallenge, setActiveChallengeState] = useState(null);
+  const challengeRef = useRef(null);
+  const setActiveChallenge = (val) => {
+    challengeRef.current = val;
+    setActiveChallengeState(val);
+  };
+
   const handleVideoPlay = async () => {
     let lastPromptTime = 0;
 
@@ -141,7 +148,6 @@ const KioskScanner = () => {
           const videoArea = videoRef.current.videoWidth * videoRef.current.videoHeight;
           const faceRatio = boxArea / videoArea;
 
-          // Проверка расстояния
           if (faceRatio > 0.35) {
              if (now - lastPromptTime > 3000) {
                const msg = new SpeechSynthesisUtterance('Отойдите');
@@ -176,62 +182,50 @@ const KioskScanner = () => {
             const match = faceMatcherRef.current.findBestMatch(detection.descriptor);
             
             if (match.label !== 'unknown') {
-              // --- LIVENESS DETECTION ---
               const landmarks = detection.landmarks;
-              const leftEye = landmarks.getLeftEye();
-              const rightEye = landmarks.getRightEye();
               const nose = landmarks.getNose();
               const jawOutline = landmarks.getJawOutline();
               
-              const earL = getEAR(leftEye);
-              const earR = getEAR(rightEye);
-              const avgEAR = (earL + earR) / 2;
-
-              // 3D pose estimate
               const distL = Math.abs(nose[0].x - jawOutline[0].x);
               const distR = Math.abs(nose[0].x - jawOutline[16].x);
               const poseRatio = distL / (distR + 0.001);
 
-              livenessHistoryRef.current.push({ ear: avgEAR, pose: poseRatio, time: Date.now() });
-              if (livenessHistoryRef.current.length > 20) livenessHistoryRef.current.shift();
-
-              const history = livenessHistoryRef.current;
               let isLive = verifiedFacesRef.current.has(match.label);
 
-              if (!isLive && history.length > 8) {
-                // Более жесткая проверка на фото (Спуфинг)
-                // 1. Обязательно моргание
-                const hasBlinked = history.some(h => h.ear < 0.22);
-                
-                // 2. Обязательно микродвижение (поворот головы в 3D)
-                const poses = history.map(h => h.pose);
-                const avgPose = poses.reduce((a, b) => a + b, 0) / poses.length;
-                const variance = poses.reduce((a, b) => a + Math.pow(b - avgPose, 2), 0) / poses.length;
-                
-                // Увеличили порог variance чтобы тряска телефона не работала
-                const hasMovement = variance > 0.003; 
+              if (!isLive) {
+                if (!challengeRef.current) {
+                  const dir = Math.random() > 0.5 ? 'LEFT' : 'RIGHT';
+                  setActiveChallenge(dir);
+                }
 
-                if (hasBlinked || hasMovement) {
+                if (challengeRef.current === 'LEFT' && poseRatio > 1.4) {
                   isLive = true;
-                  verifiedFacesRef.current.add(match.label);
-                  setTimeout(() => verifiedFacesRef.current.delete(match.label), 60000);
-                } else {
-                  // Подсказка если нет живости
-                  if (now - lastPromptTime > 4000) {
-                     setScanResult({ status: 'error', message: 'АНАЛИЗ...', details: 'Поверните немного головой' });
-                     setTimeout(() => setScanResult(null), 1500);
+                } else if (challengeRef.current === 'RIGHT' && poseRatio < 0.6) {
+                  isLive = true;
+                }
+
+                if (!isLive) {
+                  if (now - lastPromptTime > 3000) {
+                     const msgText = challengeRef.current === 'LEFT' ? 'Поверните голову налево' : 'Поверните голову направо';
+                     const msg = new SpeechSynthesisUtterance(msgText);
+                     msg.lang = 'ru-RU';
+                     window.speechSynthesis.speak(msg);
                      lastPromptTime = now;
                   }
                 }
               }
 
               if (isLive) {
-                livenessHistoryRef.current = [];
+                verifiedFacesRef.current.add(match.label);
+                setTimeout(() => verifiedFacesRef.current.delete(match.label), 60000);
+                setActiveChallenge(null);
+                
                 await logAttendance(match.label, match.distance);
               }
             } else {
               captureAndReportThreat(videoRef.current);
               playTone('error');
+              setActiveChallenge(null);
               
               if (now - lastPromptTime > 5000) {
                 const msg = new SpeechSynthesisUtterance('Доступ запрещен.');
@@ -245,7 +239,7 @@ const KioskScanner = () => {
             }
           }
         } else {
-          livenessHistoryRef.current = [];
+          setActiveChallenge(null);
         }
       }
       await new Promise(r => setTimeout(r, 150));
@@ -264,7 +258,7 @@ const KioskScanner = () => {
         body: JSON.stringify({
           studentId,
           confidenceScore: 1 - distance,
-          location: selectedLocation
+          location: locationRef.current
         })
       });
       
@@ -413,6 +407,17 @@ const KioskScanner = () => {
                   <div className="scanner-line absolute left-0 right-0"></div>
                </div>
             </div>
+
+            {activeChallenge && !scanResult && (
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+                className="absolute bottom-20 left-1/2 -translate-x-1/2 z-30 bg-black/80 backdrop-blur-md px-6 py-4 rounded-3xl border-2 border-primary/50 text-center"
+              >
+                <h3 className="text-xl font-black text-white uppercase whitespace-nowrap">
+                  {activeChallenge === 'LEFT' ? 'Поверните налево ←' : 'Поверните направо →'}
+                </h3>
+              </motion.div>
+            )}
 
             <AnimatePresence>
               {scanResult && (
