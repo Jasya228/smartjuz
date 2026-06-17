@@ -199,23 +199,9 @@ const KioskScanner = () => {
               livenessHistoryRef.current.push({ ear: avgEAR, pose: poseRatio, time: Date.now() });
               if (livenessHistoryRef.current.length > 20) livenessHistoryRef.current.shift();
 
-              let isLive = verifiedFacesRef.current.has(match.label);
-
-              if (!isLive) {
-                const history = livenessHistoryRef.current;
-                if (history.length > 5) {
-                  const hasBlinked = history.some(h => h.ear < 0.22);
-                  if (hasBlinked) {
-                    isLive = true;
-                  } else {
-                    if (now - lastPromptTime > 3000) {
-                      setScanResult({ status: 'error', message: 'АНАЛИЗ...', details: 'Моргните в камеру' });
-                      setTimeout(() => setScanResult(null), 1500);
-                      lastPromptTime = now;
-                    }
-                  }
-                }
-              }
+              // Полностью убираем проверку на "живость" по просьбе пользователя
+              // Теперь пропускает МОМЕНТАЛЬНО, как только узнает лицо
+              let isLive = true;
 
               if (isLive) {
                 verifiedFacesRef.current.add(match.label);
