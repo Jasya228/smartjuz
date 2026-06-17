@@ -165,8 +165,8 @@ export const handleTelegramUpdate = async (update) => {
   // Проверяем существующего пользователя
   const existingUser = TgUsers.findOne({ chatId: String(chatId) });
 
-  // Команды
-  if (text === '/start') {
+  const lowerText = text.toLowerCase();
+  if (lowerText.startsWith('/start') || lowerText === 'старт' || lowerText === 'start') {
     dialogState[chatId] = { step: 'awaiting_code' };
     await sendMessage(chatId, `👋 Привет, <b>${firstName}</b>!\n\nДобро пожаловать в <b>SmartFace ID</b> — систему контроля посещаемости Политехнического Колледжа.\n\n🔐 Введите <b>секретный код доступа</b> для регистрации в системе:`);
     return;
