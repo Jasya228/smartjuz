@@ -188,14 +188,12 @@ const StepFillData = ({ roleType, students, onNext, onBack }) => {
 const StepScanFace = ({ formData, onDone, onBack }) => {
   const videoRef = useRef(null);
   const streamRef = useRef(null);
-  const [status, setStatus] = useState('idle'); // idle | loading | scanning | captured | error
-  const [descriptor, setDescriptor] = useState(null);
-  const [countdown, setCountdown] = useState(3);
-
+  const [status, setStatus] = useState('idle'); // idle | loading | scanning | challenge | success | captured | error
+  const [challengeType, setChallengeType] = useState(null); // 'left' | 'right' | 'center'
+  
   const startCamera = async () => {
     setStatus('loading');
     try {
-      // Загружаем модели если надо
       if (!faceapi.nets.tinyFaceDetector.isLoaded) {
         await Promise.all([
           faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
@@ -204,47 +202,116 @@ const StepScanFace = ({ formData, onDone, onBack }) => {
         ]);
       }
 
-      const stream = await navigator.mediaDevices.getUserMedia({ video: { width: 640, height: 480 } });
+      const stream = await navigator.mediaDevices.getUserMedia({ video: { width: 640, height: 480, facingMode: 'user' } });
       streamRef.current = stream;
       if (videoRef.current) videoRef.current.srcObject = stream;
-      setStatus('scanning');
-
-      // Обратный отсчёт 3 секунды, потом скан
-      let c = 3;
-      setCountdown(c);
-      const interval = setInterval(() => {
-        c--;
-        setCountdown(c);
-        if (c <= 0) clearInterval(interval);
-      }, 1000);
-
-      await new Promise(r => setTimeout(r, 3500));
-
-      const detection = await faceapi
-        .detectSingleFace(videoRef.current, new faceapi.TinyFaceDetectorOptions())
-        .withFaceLandmarks()
-        .withFaceDescriptor();
-
-      if (detection) {
-        setDescriptor(Array.from(detection.descriptor));
-        
-        // Capture photo for avatar
-        const canvas = document.createElement('canvas');
-        canvas.width = videoRef.current.videoWidth;
-        canvas.height = videoRef.current.videoHeight;
-        canvas.getContext('2d').drawImage(videoRef.current, 0, 0);
-        const base64Image = canvas.toDataURL('image/jpeg', 0.8);
-        onDone({ ...formData, faceDescriptor: Array.from(detection.descriptor), image: base64Image });
-        
-        setStatus('captured');
-      } else {
-        setStatus('error');
-      }
-
-      stream.getTracks().forEach(t => t.stop());
+      
+      runLivenessChallenge(stream);
     } catch (e) {
       console.error(e);
       setStatus('error');
+    }
+  };
+
+  const runLivenessChallenge = async (stream) => {
+    setStatus('scanning');
+    await new Promise(r => setTimeout(r, 2000)); // Ждем пока человек посмотрит в камеру
+    
+    // Выбираем случайное задание
+    const isLeft = Math.random() > 0.5;
+    const targetChallenge = isLeft ? 'left' : 'right';
+    
+    setChallengeType(targetChallenge);
+    setStatus('challenge');
+
+    let challengePassed = false;
+    let attempts = 0;
+    
+    // Цикл проверки поворота головы
+    while (attempts < 100 && !challengePassed && streamRef.current) {
+      if (videoRef.current) {
+        const detection = await faceapi
+          .detectSingleFace(videoRef.current, new faceapi.TinyFaceDetectorOptions())
+          .withFaceLandmarks();
+
+        if (detection) {
+          const landmarks = detection.landmarks;
+          const nose = landmarks.getNose();
+          const jawOutline = landmarks.getJawOutline();
+          
+          const distL = Math.abs(nose[0].x - jawOutline[0].x);
+          const distR = Math.abs(nose[0].x - jawOutline[16].x);
+          const poseRatio = distL / (distR + 0.001);
+
+          // В зеркальном отражении (scaleX -1):
+          // Поворот налево (физически) -> нос ближе к левой стороне
+          if (targetChallenge === 'left' && poseRatio < 0.6) {
+             challengePassed = true;
+          } else if (targetChallenge === 'right' && poseRatio > 1.6) {
+             challengePassed = true;
+          }
+        }
+      }
+      attempts++;
+      await new Promise(r => setTimeout(r, 150));
+    }
+
+    if (challengePassed) {
+       setStatus('success');
+       setChallengeType('center');
+       
+       // Ждем возврата лица в центр для финального снимка
+       let centerPassed = false;
+       let centerAttempts = 0;
+       let finalDetection = null;
+       
+       while (centerAttempts < 50 && !centerPassed && streamRef.current) {
+          if (videoRef.current) {
+            finalDetection = await faceapi
+              .detectSingleFace(videoRef.current, new faceapi.TinyFaceDetectorOptions())
+              .withFaceLandmarks()
+              .withFaceDescriptor();
+
+            if (finalDetection) {
+              const landmarks = finalDetection.landmarks;
+              const nose = landmarks.getNose();
+              const jawOutline = landmarks.getJawOutline();
+              const distL = Math.abs(nose[0].x - jawOutline[0].x);
+              const distR = Math.abs(nose[0].x - jawOutline[16].x);
+              const poseRatio = distL / (distR + 0.001);
+              
+              if (poseRatio > 0.8 && poseRatio < 1.2) {
+                 centerPassed = true;
+              }
+            }
+          }
+          centerAttempts++;
+          await new Promise(r => setTimeout(r, 150));
+       }
+
+       if (centerPassed && finalDetection) {
+          // Делаем финальный снимок
+          const canvas = document.createElement('canvas');
+          canvas.width = videoRef.current.videoWidth;
+          canvas.height = videoRef.current.videoHeight;
+          const ctx = canvas.getContext('2d');
+          ctx.translate(canvas.width, 0);
+          ctx.scale(-1, 1);
+          ctx.drawImage(videoRef.current, 0, 0);
+          
+          const base64Image = canvas.toDataURL('image/jpeg', 0.8);
+          onDone({ ...formData, faceDescriptor: Array.from(finalDetection.descriptor), image: base64Image });
+          
+          setStatus('captured');
+       } else {
+          setStatus('error');
+       }
+    } else {
+       setStatus('error'); // Не выполнил задание вовремя
+    }
+    
+    if (streamRef.current) {
+      streamRef.current.getTracks().forEach(t => t.stop());
     }
   };
 
@@ -269,8 +336,6 @@ const StepScanFace = ({ formData, onDone, onBack }) => {
         .withFaceDescriptor();
 
       if (detection) {
-        setDescriptor(Array.from(detection.descriptor));
-        
         const canvas = document.createElement('canvas');
         canvas.width = img.width;
         canvas.height = img.height;
@@ -301,12 +366,11 @@ const StepScanFace = ({ formData, onDone, onBack }) => {
         <h2 className="text-xl font-bold text-white">Сканирование лица</h2>
       </div>
 
-      {/* Превью камеры */}
       <div className="relative w-full aspect-video bg-black rounded-2xl overflow-hidden border border-white/10">
-        <video ref={videoRef} autoPlay muted playsInline className="w-full h-full object-cover" />
+        <video ref={videoRef} autoPlay muted playsInline className="w-full h-full object-cover" style={{ transform: 'scaleX(-1)' }} />
         
         {status === 'idle' && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center">
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50">
             <Camera size={48} className="text-gray-500 mb-3" />
             <p className="text-gray-400">Камера не активна</p>
           </div>
@@ -319,10 +383,29 @@ const StepScanFace = ({ formData, onDone, onBack }) => {
           </div>
         )}
 
-        {status === 'scanning' && countdown > 0 && (
+        {status === 'scanning' && (
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-40 h-40 border-4 border-primary/50 rounded-full flex items-center justify-center">
-              <span className="text-6xl font-bold text-white">{countdown}</span>
+            <div className="bg-black/60 px-6 py-2 rounded-full border border-white/10">
+              <span className="text-white font-bold">Смотрите прямо</span>
+            </div>
+          </div>
+        )}
+
+        {status === 'challenge' && challengeType && (
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/30">
+             <div className="bg-primary px-8 py-4 rounded-3xl animate-bounce shadow-[0_0_30px_rgba(16,185,129,0.5)]">
+               <span className="text-black font-black text-2xl uppercase text-center block">
+                 {challengeType === 'left' ? 'Поверните голову НАЛЕВО ←' : 'Поверните голову НАПРАВО →'}
+               </span>
+               <span className="text-black/70 text-sm font-bold text-center block mt-1">Проверка на живость</span>
+             </div>
+          </div>
+        )}
+
+        {status === 'success' && challengeType === 'center' && (
+          <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+            <div className="bg-blue-500 px-8 py-4 rounded-3xl border border-blue-400 shadow-[0_0_30px_rgba(59,130,246,0.5)]">
+              <span className="text-white font-black text-2xl uppercase">Отлично! Смотрите в камеру</span>
             </div>
           </div>
         )}
@@ -330,15 +413,15 @@ const StepScanFace = ({ formData, onDone, onBack }) => {
         {status === 'captured' && (
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-primary/20 backdrop-blur-sm">
             <CheckCircle size={64} className="text-primary mb-3" />
-            <p className="text-white font-bold text-lg">Лицо записано!</p>
+            <p className="text-white font-bold text-lg">Лицо записано и подтверждено!</p>
           </div>
         )}
 
         {status === 'error' && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-red-500/20 backdrop-blur-sm">
-            <X size={64} className="text-red-400 mb-3" />
-            <p className="text-white font-bold">Лицо не обнаружено</p>
-            <p className="text-gray-300 text-sm">Смотрите прямо в камеру</p>
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-red-500/80 backdrop-blur-sm">
+            <X size={64} className="text-white mb-3" />
+            <p className="text-white font-bold text-xl uppercase">Проверка не пройдена</p>
+            <p className="text-white/80 text-sm mt-1">Не удалось подтвердить живость лица или время истекло</p>
           </div>
         )}
       </div>
@@ -350,13 +433,13 @@ const StepScanFace = ({ formData, onDone, onBack }) => {
             className="w-full bg-primary hover:bg-primary-dark text-black font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all"
           >
             <Camera size={18} />
-            Включить камеру и сканировать
+            Пройти биометрическое сканирование
           </button>
           
           <div className="relative">
             <input type="file" accept="image/*" id="photo-upload" className="hidden" onChange={handleFileUpload} />
             <label htmlFor="photo-upload" className="w-full bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 border border-blue-500/30 font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer">
-              Загрузить фото из файла
+              Загрузить фото без проверки (admin)
             </label>
           </div>
         </div>
@@ -374,7 +457,6 @@ const StepScanFace = ({ formData, onDone, onBack }) => {
 
       {status === 'captured' && (
         <button
-          onClick={() => {}}
           disabled
           className="w-full bg-primary/50 text-black font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all opacity-50"
         >

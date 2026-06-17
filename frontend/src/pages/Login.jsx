@@ -21,7 +21,7 @@ const Login = () => {
       if (res.ok) {
         localStorage.setItem('adminInfo', JSON.stringify(data));
         if (data.role === 'kiosk') {
-          window.location.href = 'https://smartface.aspc.kz/kiosk';
+          window.location.href = '/kiosk';
         } else {
           window.location.href = '/';
         }
